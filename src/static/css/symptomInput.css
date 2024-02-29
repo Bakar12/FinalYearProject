@@ -7,11 +7,25 @@ form {
     margin: 0 auto;
 }
 
-input, select {
-    width: 100%;
-    margin-bottom: 10px;
+input, select  {
+     width: 100%; /* Full width of their container */
+    padding: 20px; /* More padding for a larger touch area */
+    margin: 10px 0; /* Maintain some space around them */
+    border: 1px solid #ccc; /* Standard border */
+    border-radius: 8px; /* Rounded corners for modern look */
+    font-size: 20px; /* Larger font size for better readability */
+    box-sizing: border-box; /* Include padding and border in the width calculation */
 }
-
+input[type="number"]
+{
+    width: 100%; /* Full width of their container */
+    padding: 20px; /* More padding for a larger touch area */
+    margin: 10px 0; /* Maintain some space around them */
+    border: 1px solid #ccc; /* Standard border */
+    border-radius: 8px; /* Rounded corners for modern look */
+    font-size: 20px; /* Larger font size for better readability */
+    box-sizing: border-box; /* Include padding and border in the width calculation */
+}
 .confirmation-modal {
     display: none;
     position: fixed;
@@ -44,4 +58,35 @@ input, select {
     color: black;
     text-decoration: none;
     cursor: pointer;
+}
+
+/* Style the radio buttons */
+input[type="radio"] {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 1px solid #999;
+    border-radius: 50%;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0,0,0,0.1);
+    transition: 0.2s all linear;
+    margin-right: 10px;
+    position: relative;
+}
+
+/* Style the radio buttons when checked */
+input[type="radio"]:checked {
+    border: 6px solid #3498db;
+}
+
+/* Style the labels */
+label {
+    cursor: pointer;
+    padding: 5px;
+    display: block;
+}
+
+/* Style the div containing the radio buttons and labels */
+.form-step div {
+    margin-bottom: 10px;
 }

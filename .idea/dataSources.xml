@@ -1,12 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="SystemDiagnoses" uuid="b0238ef1-a36f-49be-b701-b740f7ed82bf">
+    <data-source source="LOCAL" name="SystemDiagnoses" uuid="b6ca2ed0-70da-4430-995a-a9b267edd60f">
       <driver-ref>sqlite.xerial</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
-      <jdbc-url>jdbc:sqlite:$PROJECT_DIR$/Database/SystemDiagnoses</jdbc-url>
+      <jdbc-url>jdbc:sqlite:C:\Users\abuba\OneDrive\Desktop\Computer Science Degree\Final Year Project\FinalWork\SystemDiagnoses\src\SystemDiagnoses</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
+      <libraries>
+        <library>
+          <url>file://$APPLICATION_CONFIG_DIR$/jdbc-drivers/Xerial SQLiteJDBC/3.43.0/org/xerial/sqlite-jdbc/3.43.0.0/sqlite-jdbc-3.43.0.0.jar</url>
+        </library>
+      </libraries>
     </data-source>
   </component>
 </project>

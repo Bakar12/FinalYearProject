@@ -1,51 +1,163 @@
 <!DOCTYPE html>
 <html lang="">
 <head>
-<title>Registration Page</title>
+    <title>Registration Page</title>
+    <script src="../static/js/passwordValidation.js"></script>
+    <script src="../static/js/multiStepForm.js"></script>
+
 </head>
 <body>
-  <h1>Registration Form</h1>
-  <form action="/" method="post">
-      <div>
-          <label for="firstName">First Name:</label>
-          <input type="text" id="firstName" name="firstName" required>
-      </div>
-      <div>
-          <label for="lastName">Last Name:</label>
-          <input type="text" id="lastName" name="lastName" required>
-      </div>
-      <div>
-          <label for="dob">Date of Birth:</label>
-          <input type="date" id="dob" name="dob" required>
-      </div>
-      <div>
-          <label for="email">Email:</label>
-          <input type="email" id="email" name="email" required>
-      </div>
-      <div>
-          <label for="password">Password:</label>
-          <input type="password" id="password" name="password" required>
-      </div>
-      <div>
-          <label for="gender">Gender:</label>
-          <select id="gender" name="gender" required>
-              <option value="">Select Gender</option>
-              <option value="male">Male</option>
-              <option value="female">Female</option>
-              <option value="other">Other</option>
-          </select>
-      </div>
-      <button type="submit">Register</button>
-  </form>
+
+
+{% extends 'base.html' %} <!-- Extending the base.html template -->
+{% block title %}Home Page{% endblock %} <!-- Setting the title of the page -->
+{% block content %}
+<div class="content-container">
+
+    <aside class="side-panel">
+        <div class="logo-container">
+            <img alt="Logo" class="logoSidePanel" src="">
+            <h1>Title/Logo</h1>
+            <p>Description of the site or service</p>
+        </div>
+    </aside>
+    <div class="main-content">
+        <main>
+            <section class="registration-form">
+                <!-- Begin the registration form -->
+                <form action="/register" id="registration-form" method="post" onsubmit="return validatePassword()">
+
+                    <!-- Step 1: Personal Information -->
+                    <fieldset class="active" id="step1">
+                        <h2>Register</h2>
+                        <div>
+                            <label for="firstName">First Name:</label>
+                            <input id="firstName" name="firstName" required type="text">
+                        </div>
+                        <div>
+                            <label for="lastName">Last Name:</label>
+                            <input id="lastName" name="lastName" required type="text">
+                        </div>
+                        <div>
+                            <label for="dob">Date of Birth:</label>
+                            <input id="dob" name="dob" required type="date">
+                        </div>
+                        <div>
+                            <label for="gender">Gender:</label>
+                            <select id="gender" name="gender" required>
+                                <option value="">Select Gender</option>
+                                <option value="male">Male</option>
+                                <option value="female">Female</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <!-- Button to proceed to the next step -->
+                        <button class="form-navigation-button" onclick="showStep(2)" type="button">Next</button>
+                        <div class="account-link">
+                            <p>Already have an account? <a href="/login">Log in</a></p>
+                        </div>
+                    </fieldset>
+
+                    <!-- Step 2: Contact Information -->
+                    <fieldset id="step2">
+                        <div>
+                            <label for="email">Email:</label>
+                            <input id="email" name="email" required type="email">
+                        </div>
+                        <!-- Added mobile number input -->
+                        <div>
+                            <label for="mobile">Mobile Number:</label>
+                            <input id="mobile" name="mobile" required type="tel">
+                        </div>
+                        <!-- Navigation buttons -->
+                        <button class="form-navigation-button previous-button" onclick="showStep(1)" type="button">
+                            Previous
+                        </button>
+                        <button class="form-navigation-button" onclick="showStep(3)" type="button">Next</button>
+                    </fieldset>
+
+                    <!-- Step 3: Credentials -->
+                    <fieldset id="step3">
+                        <div>
+                            <label for="password">Password:</label>
+                            <input id="password" name="password" onkeyup="checkPasswordStrength()" required
+                                   type="password">
+                            <span id="password-strength"></span>
+                        </div>
+                        <div>
+                            <label for="confirm_password">Confirm Password:</label>
+                            <input id="confirm_password" name="confirm_password" required type="password">
+                            <span id="password-match"></span>
+                        </div>
+                        <!-- Navigation buttons -->
+                        <button class="form-navigation-button previous-button" onclick="showStep(2)" type="button">
+                            Previous
+                        </button>
+                         <button class="form-navigation-button" onclick="showStep(4)" type="button">Next</button>
+                    </fieldset>
+                    <fieldset id="step4">
+                        <h2>Review Your Details</h2>
+                        <div>
+                            <label for="review_firstName">First Name:</label>
+                            <span id="review_firstName"></span>
+                            <button onclick="editField('firstName')" type="button">Edit</button>
+                        </div>
+                        <div>
+                            <label for="review_lastName">Last Name:</label>
+                            <span id="review_lastName"></span>
+                            <button onclick="editField('lastName')" type="button">Edit</button>
+                        </div>
+                        <div>
+                            <label for="review_dob">Date of Birth:</label>
+                            <span id="review_dob"></span>
+                            <button onclick="editField('dob')" type="button">Edit</button>
+                        </div>
+                        <div>
+                            <label for="review_gender">Gender:</label>
+                            <span id="review_gender"></span>
+                            <button onclick="editField('gender')" type="button">Edit</button>
+                        </div>
+                        <div>
+                            <label for="review_email">Email:</label>
+                            <span id="review_email"></span>
+                            <button onclick="editField('email')" type="button">Edit</button>
+                        </div>
+                        <div>
+                            <label for="review_mobile">Mobile Number:</label>
+                            <span id="review_mobile"></span>
+                            <button onclick="editField('mobile')" type="button">Edit</button>
+                        </div>
+                        <!-- Navigation buttons -->
+                        <button class="form-navigation-button previous-button" onclick="showStep(3)" type="button">
+                            Previous
+                        </button>
+                         <button class="form-navigation-button" onclick="showStep(5)" type="button">Next</button>
+                    </fieldset>
+                    <fieldset id="step5">
+                        <h2>Terms and Conditions</h2>
+                        <div>
+                            <p>Here you can add your terms and conditions...</p>
+                            <label for="terms">I agree to the terms and conditions</label>
+                            <input id="terms" name="terms" required type="checkbox">
+                        </div>
+                        <!-- Navigation buttons -->
+                        <button class="form-navigation-button previous-button" onclick="showStep(4)" type="button">
+                            Previous
+                        </button>
+                        <button class="form-navigation-button" type="submit">Register</button>
+                    </fieldset>
+                    <fieldset id="step6">
+                        <h2>Registration Complete</h2>
+                        <p>Thank you for registering. You will receive an email shortly to confirm your registration.</p>
+                    </fieldset>
+                </form>
+            </section>
+        </main>
+    </div>
+
+</div>
+{% endblock %}<!-- End of the content block -->
 
 </body>
 
 </html>
-<script>
-  function submitForm() {
-    // Process the form data here
-
-    // Redirect to the home page
-    window.location.href = "homePage.html";
-  }
-</script>

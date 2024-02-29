@@ -1,0 +1,10 @@
+Fitting 5 folds for each of 100 candidates, totalling 500 fits
+Best Parameters: {'bootstrap': False, 'criterion': 'gini', 'max_depth': 35, 'min_samples_leaf': 1, 'min_samples_split': 4, 'n_estimators': 200}
+Best Score: 0.9448872353356658
+Evaluation of the best model:
+Accuracy: 0.8845401174168297
+Precision: 0.15
+Recall: 0.1935483870967742
+F1 Score: 0.16901408450704225
+ROC-AUC Score: 0.5613575268817205
+Cross-validation Score: 0.9441184973471968

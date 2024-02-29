@@ -1,0 +1,109 @@
+.content-container {
+    display: flex;
+    justify-content: center;
+    gap: 300px; /* Adjust as needed */
+
+}
+
+/* Registration Form Styling */
+.registration-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    width: 100%;
+    margin-top: 150px;
+}
+
+.registration-form fieldset {
+    display: none;
+    border: none;
+}
+
+.registration-form fieldset.active {
+    display: block;
+}
+
+.registration-form h2 {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.registration-form form div {
+    margin-bottom: 10px;
+}
+
+.registration-form form label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.registration-form form input[type="text"],
+.registration-form form input[type="date"],
+.registration-form form input[type="email"],
+.registration-form form input[type="password"],
+.registration-form form input[type="tel"],
+.registration-form form select {
+    width: 700px;
+    padding: 20px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 20px;
+    box-sizing: border-box;
+}
+
+button {
+    padding: 15px 30px;
+    font-size: 18px;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    max-width: 350px;
+    margin: 10px auto;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.account-link a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.account-link a:hover {
+    text-decoration: underline;
+}
+
+@media screen and (max-width: 800px) {
+    .registration-form form input[type="text"],
+    .registration-form form input[type="date"],
+    .registration-form form input[type="email"],
+    .registration-form form input[type="password"],
+    .registration-form form input[type="tel"],
+    .registration-form form select,
+    button {
+        padding: 10px;
+    }
+}
+
+.side-panel {
+    margin-top: 170px;
+    position: fixed;
+    top: 0;
+    bottom: 100px;
+    left: 0;
+    width: 25%;
+    height: calc(100% - 100px);
+    background-color: lightblue;
+}
+
+.registration-form {
+    width: 75%;
+}

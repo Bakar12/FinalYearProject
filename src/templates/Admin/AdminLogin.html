@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+<title>Login Page</title>
+
+</head>
+<body>
+{% extends 'base.html' %}
+{% block title %}Login Page{% endblock %} <!-- Setting the title of the page -->
+
+{% block content %}
+<aside class="side-panel">
+    <div class="logo-container">
+        <img src="" alt="Logo" class="logoSidePanel">
+        <h1>Title/Logo</h1>
+        <p>Description of the site or service</p>
+    </div>
+</aside>
+<div class="main-content">
+    <section class="registration-form">
+        <h2>Login</h2>
+        <form action="/login" method="post">
+            <div>
+                <label for="email">Admin ID:</label>
+                <input type="email" id="email" name="AdminID" required>
+            </div>
+            <div>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <button type="submit" class="form-navigation-button">Login</button>
+
+
+        </form>
+    </section>
+</div>
+
+{% endblock %}
+
+</body>
+
+</html>

@@ -1,0 +1,116 @@
+<!-- base.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+    <link href="../static/css/main.css" rel="stylesheet">
+    <link href="../static/css/footer.css" rel="stylesheet">
+    <link href="../static/css/navbar.css" rel="stylesheet">
+    <link href="../static/css/forms.css" rel="stylesheet">
+    <link href="../static/css/symptomInput.css" rel="stylesheet">
+    <link href="../static/css/responsive.css" rel="stylesheet">
+    <link href="../static/css/responsive.css" rel="stylesheet">
+    <link href="../static/css/result.css" rel="stylesheet">
+    <link href="../static/css/DoctorAdminChoicePage.css" rel="stylesheet">
+
+    <link href="../static/Images/logo/logo2NoBackground.png" rel="icon">
+    <script src="../static/js/multiStepForm.js"></script>
+    <script src="../static/js/symptomInputStep.js"></script>
+    <script src="../static/js/passwordValidation.js"></script>
+    <script src="/static/js/DoctorAdminLogin.js"></script>
+</head>
+<body>
+<!-- Header -->
+<div class="header-container">
+    <!-- Logo -->
+    <h1 class="logo">
+        <img alt="Logo" src="../static/Images/logo/logo2NoBackground.png">
+        Symptom Diagnoses
+    </h1>
+    <!-- Search bar -->
+    <label class="search-bar">
+        <input placeholder="Search.." type="text">
+    </label>
+</div>
+
+<!-- Navigation -->
+<nav class="navbar">
+    <div class="navbar-content">
+        <ul class="navbar-nav">
+            <!-- Home link -->
+            <li class="nav-item active">
+                <a class="nav-link" href="/">Home</a>
+            </li>
+            <!-- Symptom Checker link -->
+            <li class="nav-item">
+                <a class="nav-link" href="/symptom-checker">Symptom Checker</a>
+            </li>
+            <!-- About link -->
+            <li class="nav-item">
+                <a class="nav-link" href="/about">About</a>
+            </li>
+            <!-- Contact Us link -->
+            <li class="nav-item">
+                <a class="nav-link" href="/contact">Contact Us</a>
+            </li>
+        </ul>
+        <!-- User Profile and Logout links -->
+        {% if session.logged_in %}
+        <div class="right-nav">
+            <!-- Dropdown Menu Trigger -->
+            <div class="nav-item dropdown">
+                <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown"
+                   href="#"
+                   id="navbarDropdown" role="button">
+                    {{ session.first_name }} {{ session.last_name }}
+
+                </a>
+                <!-- Dropdown Menu Items -->
+                <div aria-labelledby="navbarDropdown" class="dropdown-menu">
+                    <a class="dropdown-item" href="/profile">Profile</a>
+                    <a class="dropdown-item" href="/logout">Logout</a>
+                </div>
+            </div>
+        </div>
+        {% else %}
+        <div class="right-nav">
+            <a class="nav-link" href="/login">Login/Register</a>
+        </div>
+        {% endif %}
+
+
+    </div>
+</nav>
+
+<!-- Content block -->
+{% block content %}{% endblock %}
+
+<!-- Footer -->
+<!-- Footer -->
+<footer>
+    <div class="footer-container">
+        <div class="footer-content">
+            <h3>Symptom Diagnoses</h3>
+            <p>Your reliable partner in health.</p>
+            <ul class="footer-links">
+                <li><a href="/about">About Us</a></li>
+                <li><a href="/contact-us">Contact</a></li>
+                <li><a href="/terms">Terms of Service</a></li>
+                <li><a href="/privacy">Privacy Policy</a></li>
+            </ul>
+        </div>
+        <div class="footer-social-media">
+            <!-- Social media links or icons could go here -->
+            <a href="#">Facebook</a> |
+            <a href="#">Twitter</a> |
+            <a href="#">LinkedIn</a>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2023 Symptom Diagnoses. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>

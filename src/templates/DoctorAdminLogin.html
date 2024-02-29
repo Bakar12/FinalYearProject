@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <title>Login Page</title>
+
+</head>
+<body>
+{% extends 'base.html' %}
+{% block title %}Login Page{% endblock %} <!-- Setting the title of the page -->
+
+{% block content %}
+<aside class="side-panel">
+    <div class="logo-container">
+        <img alt="Logo" class="logoSidePanel" src="">
+        <h1>Title/Logo</h1>
+        <p>Description of the site or service</p>
+    </div>
+</aside>
+<div class="main-content">
+    <section class="registration-form">
+        <h2>Login</h2>
+        <div class="AdminDoctorChoice">
+            <div class="main-content">
+                <button class="doctor-section" href="/Doclogin" id="doctor-login">Are you a Doctor</button>
+                <button class="admin-section" href="/Adminlogin" id="admin-login">Are you an Admin</button>
+            </div>
+        </div>
+    </section>
+</div>
+
+{% endblock %}
+
+</body>
+
+</html>

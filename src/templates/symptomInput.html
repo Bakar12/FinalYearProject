@@ -3,86 +3,133 @@
 <head>
     <meta charset="UTF-8">
     <title>Stroke Prediction</title>
-    <link href="pythonProject/CSS/form.css" rel="stylesheet">
+    <script src="../static/js/multiStepForm.js"></script>
 </head>
 <body>
+{% extends 'base.html' %}
+{% block title %}Symptom Checker{% endblock %}
+{% block content %}
+
+<h2>Stroke Prediction Form</h2>
+
+
 <h2>Stroke Prediction Form</h2>
 <form action="/predict" method="post">
-    Age: <label>
-    <input name="age" placeholder="Age" required type="number">
-</label><br>
+     <div id="form-container">
+        <form id="predictionForm">
+            <div class="form-step" id="step-general">
+                <h3>General Information</h3>
+        <!-- Ordinary fields -->
+                Age:
+                <label>
+                    <input name="age" placeholder="Age" required type="number">
+                </label><br>
 
-    Gender:
-    <label>
-        <select name="gender" required>
-            <option value="0">Male</option>
-            <option value="1">Female</option>
-        </select>
-    </label><br>
-
-    Hypertension:
-    <label>
-        <select name="hypertension" required>
-            <option value="0">No</option>
-            <option value="1">Yes</option>
-        </select>
-    </label><br>
-
-    Heart Disease:
-    <label>
-        <select name="heart_disease" required>
-            <option value="0">No</option>
-            <option value="1">Yes</option>
-        </select>
-    </label><br>
-
+                Gender:
+                <label>
+                    <select name="gender" required>
+                        <option value="0">Male</option>
+                        <option value="1">Female</option>
+                    </select>
+                </label><br>
+                <button type="button" onclick="showNextStep('step-lifestyle')">Next</button>
+            </div>
+            <div class="form-step" id="step-lifestyle" style="display:none;">
+    <h3>Lifestyle Options</h3>
     Ever Married:
-    <label>
-        <select name="ever_married" required>
-            <option value="0">No</option>
-            <option value="1">Yes</option>
-        </select>
-    </label><br>
+    <div>
+        <label>
+            <input type="radio" name="ever_married" value="0" required> No
+        </label>
+        <label>
+            <input type="radio" name="ever_married" value="1" required> Yes
+        </label>
+    </div>
 
     Work Type:
-    <label>
-        <select name="work_type" required>
-            <option value="0">Private</option>
-            <option value="1">Self-employed</option>
-            <option value="2">Govt Job</option>
-            <option value="3">Never Worked</option>
-            <option value="4">Children</option>
-        </select>
-    </label><br>
-
-    Residence Type:
-    <label>
-        <select name="Residence_type" required>
-            <option value="0">Urban</option>
-            <option value="1">Rural</option>
-        </select>
-    </label><br>
-
-    Avg Glucose Level: <label>
-    <input name="avg_glucose_level" placeholder="Avg Glucose Level" required step="0.01" type="number">
-</label><br>
-
-    BMI: <label>
-    <input name="bmi" placeholder="BMI" required step="0.01" type="number">
-</label><br>
+    <div>
+        <label>
+            <input type="radio" name="work_type" value="0" required> Private
+        </label>
+        <label>
+            <input type="radio" name="work_type" value="1" required> Self-employed
+        </label>
+        <label>
+            <input type="radio" name="work_type" value="2" required> Govt Job
+        </label>
+        <label>
+            <input type="radio" name="work_type" value="3" required> Never Worked
+        </label>
+        <label>
+            <input type="radio" name="work_type" value="4" required> Children
+        </label>
+    </div>
 
     Smoking Status:
-    <label>
-        <select name="smoking_status" required>
-            <option value="0">Never Smoked</option>
-            <option value="1">Formerly Smoked</option>
-            <option value="2">Smokes</option>
-            <option value="3">Unknown</option>
-        </select>
-    </label><br>
+    <div>
+        <label>
+            <input type="radio" name="smoking_status" value="0" required> Never Smoked
+        </label>
+        <label>
+            <input type="radio" name="smoking_status" value="1" required> Formerly Smoked
+        </label>
+        <label>
+            <input type="radio" name="smoking_status" value="2" required> Smokes
+        </label>
+        <label>
+            <input type="radio" name="smoking_status" value="3" required> Unknown
+        </label>
+    </div>
 
-    <input type="submit" value="Predict Stroke">
+    Residence Type:
+    <div>
+        <label>
+            <input type="radio" name="Residence_type" value="0" required> Urban
+        </label>
+        <label>
+            <input type="radio" name="Residence_type" value="1" required> Rural
+        </label>
+    </div>
+    <button type="button" onclick="showPreviousStep('step-general')">Previous</button>
+    <button type="button" onclick="showNextStep('step-medical')">Next</button>
+</div>
+
+            <div class="form-step" id="step-medical" style="display:none;">
+                <h3>Medical Information</h3>
+                <!-- Medical fields -->
+                Hypertension:
+                <label>
+                    <select name="hypertension" >
+                        <option value="0">No</option>
+                        <option value="1">Yes</option>
+                    </select>
+                </label><br>
+
+                Heart Disease:
+                <label>
+                    <select name="heart_disease" >
+                        <option value="0">No</option>
+                        <option value="1">Yes</option>
+                    </select>
+                </label><br>
+
+
+                Avg Glucose Level:
+                <label>
+                    <input name="avg_glucose_level" placeholder="Avg Glucose Level" required step="0.01" type="number">
+                </label>
+                <br>
+
+                BMI:
+                <label>
+                    <input name="bmi" placeholder="BMI" required step="0.01" type="number">
+                </label><br>
+                <button type="button" onclick="showPreviousStep('step-medical')">Previous</button>
+                <input type="submit" value="Predict Stroke">
+            </form>
+            </div>
+    </div>
 </form>
-
+{% endblock %}
 </body>
 </html>

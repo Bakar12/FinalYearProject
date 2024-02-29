@@ -2,9 +2,57 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Symptom Checker | Find Possible Causes for Your Symptoms</title>
 </head>
+
 <body>
+{% extends 'base.html' %}
+{% block title %}Home Page{% endblock %}
+{% block content %}
+
+<header>
+    <h1>Identify Your Symptoms, Find Possible Causes</h1>
+</header>
+
+<main>
+    <section class="hero">
+        <img alt="Home Page Banner" src="../static/Images/banner/homePageBanner.png">
+        <h2>Feeling Unwell? Let's Figure It Out Together.</h2>
+        <p>Start by entering your symptoms, and we'll guide you through possible causes and next steps.</p>
+        <button>Start Checking Symptoms</button>
+    </section>
+
+    <!-- Important Note/Disclaimer Section -->
+    <section class="disclaimer">
+        <h2>Important Note/Disclaimer</h2>
+        <p>This is an important note or disclaimer</p>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <h2>Reviews</h2>
+        <ul>
+            <li>Review 1</li>
+            <li>Review 2</li>
+            <li>Review 3</li>
+        </ul>
+    </section>
+
+    <section class="features">
+        <h2>Take Control of Your Health</h2>
+        <ul>
+            <li>Quick and easy-to-use symptom checker</li>
+            <li>Comprehensive database of potential causes</li>
+            <li>Tailored recommendations based on your symptoms</li>
+            <li>Trusted information from medical professionals</li>
+            <li>Privacy-protected and secure</li>
+        </ul>
+    </section>
+
+</main>
+
+{% endblock %}
 
 </body>
 </html>

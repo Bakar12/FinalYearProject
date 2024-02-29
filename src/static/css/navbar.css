@@ -1,0 +1,77 @@
+/* Sticky Header Container */
+.header-container {
+    position: fixed; /* Fixed position to make it sticky */
+    top: 0; /* Align to the top of the viewport */
+    left: 0; /* Align to the left side of the viewport */
+    right: 0; /* Align to the right side of the viewport */
+    background: #fff; /* Background color */
+    z-index: 1000; /* High z-index to ensure it's on top */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px; /* Adjust as needed */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* Optional: Adds shadow for depth */
+}
+
+/* Overall layout */
+nav {
+    background-color: #f5f5f5; /* Light background for clarity */
+    padding: 20px;
+    border-bottom: 1px solid #ccc; /* Visual separation */
+    position: fixed; /* Make the navbar fixed to the top */
+    top: 0; /* Align to the top */
+    left: 0; /* Align to the left */
+    right: 0; /* Stretch across the width of the viewport */
+    z-index: 1000; /* Ensure the navbar is above other content */
+    margin-top: 90px;
+}
+
+/* Navigation links */
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav li {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #333;
+    padding: 5px 10px;
+}
+
+nav a:hover {
+    background-color: #eee;
+}
+
+/* Additional styles for positioning */
+.navbar-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.right-nav {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+}
+
+.search-bar {
+    margin-right: 20px; /* Space between search bar and links */
+}
+
+.search-bar input {
+    padding: 5px;
+    margin-right: 10px; /* Space between input and button */
+}
+
+.logo img {
+    height: 80px;
+    width: 80px;
+    margin-right: 10px;
+}
