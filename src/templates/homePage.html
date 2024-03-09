@@ -49,6 +49,13 @@
             <li>Privacy-protected and secure</li>
         </ul>
     </section>
+    {% if latest_result %}
+<section class="latest-result">
+    <h2>Your Latest Result</h2>
+    <p>Diagnosis Result: {{ latest_result.DiagnosisResult }}</p>
+    <p>Diagnosis Date: {{ latest_result.DiagnosisDate }}</p>
+</section>
+{% endif %}
 
 </main>
 

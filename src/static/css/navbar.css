@@ -75,3 +75,14 @@ nav a:hover {
     width: 80px;
     margin-right: 10px;
 }
+.navbar {
+    position: fixed; /* Make the navbar fixed to the top */
+    top: 0; /* Align to the top */
+    left: 0; /* Align to the left */
+    right: 0; /* Stretch across the width of the viewport */
+    z-index: 1000; /* Ensure the navbar is above other content */
+    background-color: #f5f5f5; /* Light background for clarity */
+    padding: 20px;
+    border-bottom: 1px solid #ccc; /* Visual separation */
+    margin-top: 90px; /* Adjust this value as needed */
+}

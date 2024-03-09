@@ -1,0 +1,19 @@
+{% extends 'Admin/AdminBase.html' %}
+{% block content %}
+<div class="main">
+    <h2>User Feedback</h2>
+    {% if feedbacks %}
+    <div class="feedback-list">
+        {% for feedback in feedbacks %}
+        <div class="feedback-item">
+            [...]
+        </div>
+        {% endfor %}
+    </div>
+    {% else %}
+    <div class="empty-message">
+        <p>No feedback available.</p>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

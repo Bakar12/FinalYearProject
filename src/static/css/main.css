@@ -5,7 +5,9 @@ body {
     line-height: 1.5;
     color: #333; /* Darker text for better contrast */
     margin: 0;
-    padding-top: 60px; /* Add top padding to push the content down below the navbar */
+    padding-top: 200px;
+    padding-bottom: 50px;
+
 }
 
 /* Logo and search bar */

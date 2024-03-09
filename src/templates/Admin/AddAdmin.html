@@ -1,0 +1,61 @@
+{% extends 'Admin/AdminBase.html' %}
+{% block content %}
+<div class="main">
+    <h2>Add Admin</h2>
+    <form action="/confirm_admin" method="post">
+        <div>
+            <label for="firstName">First Name:</label>
+            <input type="text" id="firstName" name="firstName" required>
+        </div>
+        <div>
+            <label for="lastName">Last Name:</label>
+            <input type="text" id="lastName" name="lastName" required>
+        </div>
+        <div>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+        <div>
+            <label for="mobile">Mobile:</label>
+            <input type="text" id="mobile" name="mobile" required>
+        </div>
+        <div>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+        </div>
+        <div>
+            <label for="gender">Gender:</label>
+            <select id="gender" name="gender" required>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Others">Others</option>
+            </select>
+        </div>
+        <div>
+            <label for="dob">Date of Birth:</label>
+            <input type="date" id="dob" name="dob" required>
+        </div>
+        <div>
+            <label for="canSeeFeedback">Can See Feedback:</label>
+            <input type="checkbox" id="canSeeFeedback" name="canSeeFeedback">
+        </div>
+        <div>
+            <label for="canSeeSecurityLogs">Can See Security Logs:</label>
+            <input type="checkbox" id="canSeeSecurityLogs" name="canSeeSecurityLogs">
+        </div>
+        <div>
+            <label for="canAddViewDoctors">Can Add/View Doctors:</label>
+            <input type="checkbox" id="canAddViewDoctors" name="canAddViewDoctors">
+        </div>
+        <div>
+            <label for="canDeleteViewUsers">Can Delete/View Users:</label>
+            <input type="checkbox" id="canDeleteViewUsers" name="canDeleteViewUsers">
+        </div>
+        <div>
+            <label for="canAddDeleteAdmins">Can Add/Delete Admins:</label>
+            <input type="checkbox" id="canAddDeleteAdmins" name="canAddDeleteAdmins">
+        </div>
+        <button type="submit">Add Admin</button>
+    </form>
+</div>
+{% endblock %}

@@ -6,7 +6,7 @@
 </head>
 <body>
 {% extends 'base.html' %}
-{% block title %}Login Page{% endblock %} <!-- Setting the title of the page -->
+{% block title %}Login Page{% endblock %}
 
 {% block content %}
 <aside class="side-panel">
@@ -19,10 +19,10 @@
 <div class="main-content">
     <section class="registration-form">
         <h2>Login</h2>
-        <form action="/login" method="post">
+        <form action="/login_admin" method="post">
             <div>
-                <label for="email">Admin ID:</label>
-                <input type="email" id="email" name="AdminID" required>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
             </div>
             <div>
                 <label for="password">Password:</label>

@@ -1,0 +1,28 @@
+{% extends 'Admin/AdminBase.html' %}
+{% block content %}
+<div class="main">
+    <h2>Profile</h2>
+    <div class="profile-info centered">
+
+        <div class="profile-pic">
+            <form action="/upload" enctype="multipart/form-data" method="post">
+                <input id="file" name="profile_pic" onchange="loadFile(event)" type="file"/>
+                <input type="submit" value="Upload">
+            </form>
+        </div>
+        <div>
+            <span>First Name: <span id="first_name">{{ admin.FirstName }}</span></span>
+        </div>
+        <div>
+            <span>Last Name: <span id="last_name">{{ admin.Surname }}</span></span>
+        </div>
+        <div>
+            <span>Gender: <span id="gender">{{ admin.Gender }}</span></span>
+        </div>
+        <div>
+            <span>Date of Birth: <span id="dob">{{ admin.DateOfBirth }}</span></span>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

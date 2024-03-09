@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="sidenav">
+    <a href="{{ url_for('profile') }}">Profile</a>
+    <a href="{{ url_for('history') }}">History</a>
+    <a href="{{ url_for('logout') }}">Logout</a>
+</div>
+
+<div class="main">
+    <h2>Profile</h2>
+    <div class="profile-info centered">
+
+        <div class="profile-pic">
+            <form action="/upload" enctype="multipart/form-data" method="post">
+                <label class="-label" for="file">
+                    <span class="glyphicon glyphicon-camera"></span>
+                    <span>Change Image</span>
+                </label>
+                <input id="file" name="profile_pic" onchange="loadFile(event)" type="file"/>
+                <input type="submit" value="Upload">
+            </form>
+            {% if user.profile_pic_path %}
+            <img id="output1" src="{{ url_for('static', filename='uploads/' + user.profile_pic_path) }}" width="200"/>
+            {% else %}
+            <img id="output2" src="{{ url_for('static', filename='static/Images/ProfilePic/ProfilePicturePlaceholder.jpg') }}" width="200"/>
+            {% endif %}
+        </div>
+        <div>
+            <span>First Name: <span id="first_name">{{ user.FirstName }}</span></span>
+        </div>
+        <div>
+            <span>Last Name: <span id="last_name">{{ user.Surname }}</span></span>
+        </div>
+        <div>
+            <span>Gender: <span id="gender">{{ user.Gender }}</span></span>
+        </div>
+        <div>
+            <span>Date of Birth: <span id="dob">{{ user.DateOfBirth }}</span></span>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

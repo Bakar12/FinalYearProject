@@ -1,0 +1,24 @@
+{% extends 'Admin/AdminBase.html' %}
+{% block content %}
+<div class="main">
+    <h2>Confirm New Admin</h2>
+    <p>First Name: {{ admin.first_name }}</p>
+    <p>Last Name: {{ admin.last_name }}</p>
+    <p>Email: {{ admin.email }}</p>
+    <p>Mobile: {{ admin.mobile }}</p>
+    <p>Gender: {{ admin.gender }}</p>
+    <p>Date of Birth: {{ admin.dob }}</p>
+    <p>Can See Feedback: {{ admin.can_see_feedback }}</p>
+    <p>Can See Security Logs: {{ admin.can_see_security_logs }}</p>
+    <p>Can Add/View Doctors: {{ admin.can_add_view_doctors }}</p>
+    <p>Can Delete/View Users: {{ admin.can_delete_view_users }}</p>
+    <p>Can Add/Delete Admins: {{ admin.can_add_delete_admins }}</p>
+    <form action="/add_admin_confirmed" method="post">
+        {% for field, value in admin.items() %}
+        <input type="hidden" name="{{ field }}" value="{{ value }}">
+        {% endfor %}
+        <button type="submit">Confirm</button>
+    </form>
+    <button onclick="window.history.back()">Cancel</button>
+</div>
+{% endblock %}

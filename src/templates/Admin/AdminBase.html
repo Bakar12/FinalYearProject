@@ -1,24 +1,23 @@
-<!-- base.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>{% block title %}{% endblock %}</title>
-    <link href="../static/css/main.css" rel="stylesheet">
-    <link href="../static/css/footer.css" rel="stylesheet">
-    <link href="../static/css/navbar.css" rel="stylesheet">
-    <link href="../static/css/forms.css" rel="stylesheet">
-    <link href="../static/css/symptomInput.css" rel="stylesheet">
-    <link href="../static/css/responsive.css" rel="stylesheet">
-    <link href="../static/css/responsive.css" rel="stylesheet">
-    <link href="../static/css/result.css" rel="stylesheet">
-    <link href="../static/css/DoctorAdminChoicePage.css" rel="stylesheet">
-    <link href="../static/css/UserProfile.css" rel="stylesheet">
-
-    <link href="../static/Images/logo/logo2NoBackground.png" rel="icon">
-    <script src="../static/js/multiStepForm.js"></script>
-    <script src="../static/js/symptomInputStep.js"></script>
-    <script src="../static/js/passwordValidation.js"></script>
+    <link href="/static/css/main.css" rel="stylesheet">
+    <link href="/static/css/footer.css" rel="stylesheet">
+    <link href="/static/css/navbar.css" rel="stylesheet">
+    <link href="/static/css/forms.css" rel="stylesheet">
+    <link href="/static/css/symptomInput.css" rel="stylesheet">
+    <link href="/static/css/responsive.css" rel="stylesheet">
+    <link href="/static/css/result.css" rel="stylesheet">
+    <link href="/static/css/DoctorAdminChoicePage.css" rel="stylesheet">
+    <link href="/static/css/UserProfile.css" rel="stylesheet">
+    <link href="/static/css/AddAdmin.css" rel="stylesheet">
+    <link href="/static/css/AdminListTable.css" rel="stylesheet">
+    <link href="/static/Images/logo/logo2NoBackground.png" rel="icon">
+    <script src="/static/js/multiStepForm.js"></script>
+    <script src="/static/js/symptomInputStep.js"></script>
+    <script src="/static/js/passwordValidation.js"></script>
     <script src="/static/js/DoctorAdminLogin.js"></script>
 </head>
 <body>
@@ -26,14 +25,13 @@
 <div class="header-container">
     <!-- Logo -->
     <h1 class="logo">
-        <img alt="Logo" src="../static/Images/logo/logo2NoBackground.png">
-        Symptom Diagnoses
+        <img alt="Logo" src="/static/Images/logo/logo2NoBackground.png">
+        Symptom Diagnoses Admin
     </h1>
     <!-- Search bar -->
     <label class="search-bar">
         <input placeholder="Search.." type="text">
     </label>
-
 </div>
 
 <!-- Navigation -->
@@ -42,19 +40,22 @@
         <ul class="navbar-nav">
             <!-- Home link -->
             <li class="nav-item active">
-                <a class="nav-link" href="/">Home</a>
+                <a class="nav-link" href="/admin_dashboard">Home</a>
             </li>
-            <!-- Symptom Checker link -->
+            <!-- User Feedback link -->
             <li class="nav-item">
-                <a class="nav-link" href="/symptom-checker">Symptom Checker</a>
+                <a class="nav-link" href="/user_feedback">User Feedback</a>
             </li>
-            <!-- About link -->
+            <!-- Security Logs link -->
             <li class="nav-item">
-                <a class="nav-link" href="/about">About</a>
+                <a class="nav-link" href="/security_logs">Security Logs</a>
             </li>
-            <!-- Contact Us link -->
+            <!-- Doctors link -->
             <li class="nav-item">
-                <a class="nav-link" href="/contact">Contact Us</a>
+                <a class="nav-link" href="/doctors">Doctors</a>
+            </li>
+            <li class="nav-item">
+                <a href="/admin_list">Admin List</a>
             </li>
         </ul>
         <!-- User Profile and Logout links -->
@@ -70,7 +71,7 @@
                 </a>
                 <!-- Dropdown Menu Items -->
                 <div aria-labelledby="navbarDropdown" class="dropdown-menu">
-                    <a class="dropdown-item" href="/profile">Profile</a>
+                    <a class="dropdown-item" href="/admin_profile">Profile</a>
                     <a class="dropdown-item" href="/logout">Logout</a>
                 </div>
             </div>
@@ -80,15 +81,12 @@
             <a class="nav-link" href="/login">Login/Register</a>
         </div>
         {% endif %}
-
-
     </div>
 </nav>
 
 <!-- Content block -->
 {% block content %}{% endblock %}
 
-<!-- Footer -->
 <!-- Footer -->
 <footer>
     <div class="footer-container">

@@ -1,0 +1,53 @@
+{% extends 'Admin/AdminBase.html' %}
+{% block content %}
+
+<div class="main">
+    <div class="table-wrapper">
+        <div class="fl-table">
+            <h2>Admin List</h2>
+
+            {% if session.permissions[4] %}
+            <h3>Add Admin</h3>
+            <button><a href="/add_admin">Add Admin</a></button>
+            {% endif %}
+            <table>
+                <tr>
+                    <th>ID</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Email</th>
+                    <th>Gender</th>
+                    <th>Mobile</th>
+                    <th>DOB</th>
+                    <th>Feedback</th>
+                    <th>Logs</th>
+                    <th>Modify Doctors</th>
+                    <th>Modify Users</th>
+                    <th>Modify Admins</th>
+                </tr>
+                {% for admin, permission in admin_permission_pairs %}
+                <tr>
+                    <td>{{ admin[0] }}</td>
+                    <td>{{ admin[1] }}</td>
+                    <td>{{ admin[2] }}</td>
+                    <td>{{ admin[3] }}</td>
+                    <td>{{ admin[4] }}</td>
+                    <td>{{ admin[7] }}</td>
+                    <td>{{ admin[5] }}</td>
+                    <td>{% if permission[1] %}✔️{% else %}❌{% endif %}</td>
+                    <td>{% if permission[2] %}✔️{% else %}❌{% endif %}</td>
+                    <td>{% if permission[3] %}✔️{% else %}❌{% endif %}</td>
+                    <td>{% if permission[4] %}✔️{% else %}❌{% endif %}</td>
+                    <td>{% if permission[5] %}✔️{% else %}❌{% endif %}</td>
+                    <td>
+                        {% if session.permissions[4] %}
+                        <button type="button">Modify</button>
+                        {% endif %}
+                    </td>
+
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+    {% endblock %}

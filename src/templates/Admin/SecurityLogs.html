@@ -1,0 +1,19 @@
+{% extends 'Admin/AdminBase.html' %}
+{% block content %}
+<div class="main">
+<table>
+    <tr>
+        <th>Action Type</th>
+        <th>Action Date</th>
+        <th>Action Details</th>
+    </tr>
+    {% for log in logs %}
+    <tr>
+        <td>{{ log[2] }}</td>
+        <td>{{ log[3] }}</td>
+        <td>{{ log[4] }}</td>
+    </tr>
+    {% endfor %}
+</table>
+</div>
+{% endblock %}

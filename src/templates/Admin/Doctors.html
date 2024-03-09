@@ -1,0 +1,19 @@
+{% extends 'Admin/AdminBase.html' %}
+{% block content %}
+<div class="main">
+    <h2>Doctors</h2>
+    {% if doctors %}
+    <div class="doctors-list">
+        {% for doctor in doctors %}
+        <div class="doctor-item">
+            [...]
+        </div>
+        {% endfor %}
+    </div>
+    {% else %}
+    <div class="empty-message">
+        <p>No doctors available.</p>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}
