@@ -1,0 +1,61 @@
+{% extends 'Admin/AdminBase.html' %}
+{% block content %}
+<div class="main">
+    <h2>Add Doctor</h2>
+    <form action="/confirm_doctor" method="post">
+        <div>
+            <label for="firstName">First Name:</label>
+            <input type="text" id="firstName" name="firstName" required>
+        </div>
+        <div>
+            <label for="lastName">Last Name:</label>
+            <input type="text" id="lastName" name="lastName" required>
+        </div>
+        <div>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+        <div>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+        </div>
+        <div>
+            <label for="gender">Gender:</label>
+            <select id="gender" name="gender" required>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Others">Others</option>
+            </select>
+        </div>
+        <div>
+            <label for="hospitalAffiliation">Hospital Affiliation:</label>
+            <input type="text" id="hospitalAffiliation" name="hospitalAffiliation" required>
+        </div>
+        <div>
+            <label for="specialization">Specialisation:</label>
+            <input type="text" id="specialization" name="specialization" required>
+        </div>
+        <div>
+            <label for="qualifications">Qualifications:</label>
+            <input type="text" id="qualifications" name="qualifications" required>
+        </div>
+        <div>
+            <label for="stateLicenseNumber">State License Number:</label>
+            <input type="text" id="stateLicenseNumber" name="stateLicenseNumber" required>
+        </div>
+        <div>
+            <label for="contactInformation">Contact Information:</label>
+            <input type="text" id="contactInformation" name="contactInformation" required>
+        </div>
+        <div>
+            <label for="department">Department:</label>
+            <input type="text" id="department" name="department" required>
+        </div>
+        <div>
+            <label for="biography">Biography:</label>
+            <textarea id="biography" name="biography" required></textarea>
+        </div>
+        <button class="confirm" type="submit">Add Doctor</button>
+    </form>
+</div>
+{% endblock %}

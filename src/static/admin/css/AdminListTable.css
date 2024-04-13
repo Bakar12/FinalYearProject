@@ -1,0 +1,131 @@
+/* General body and content styling */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #fff;  /* White background for clarity */
+}
+
+.main {
+    width: 98%; /* Adjust to 98% to utilize almost full width */
+    margin: 20px auto; /* Ensure some margin around the main container */
+    padding: 0 10px; /* Padding to prevent content from touching the screen edges */
+}
+
+/* Table Wrapper for scrolling and centering */
+.table-wrapper {
+    overflow-x: auto; /* Allows horizontal scrolling if needed */
+    text-align: center; /* Centers the content inside */
+
+    .fl-table {
+        width: 100%; /* Ensures the table is fully responsive */
+        border-collapse: collapse;
+        margin: 0 auto;
+    }
+
+    .fl-table th,
+    .fl-table td {
+        padding: 8px;
+        border: 1px solid #dddddd;
+        text-align: left;
+        word-wrap: break-word; /* Ensures text fits within the cells */
+    }
+
+    .fl-table th {
+        background-color: #009879;
+        color: white;
+        text-transform: uppercase;
+    }
+
+
+
+    .fl-table tr:hover {
+        background-color: #f1f1f1;
+    }
+
+    /* Centering buttons */
+
+    .button-container {
+        text-align: center; /* This will center the button(s) inside it */
+        margin-top: 20px; /* Adds some space above the button container */
+    }
+
+    /* Button styling unified for all buttons */
+
+    button {
+ background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px auto;
+    cursor: pointer;
+    border-radius: 5px;
+    text-align: center;
+    text-decoration: none;
+    }
+
+    button a {
+        text-decoration: none; /* Ensures text inside <a> is white */
+    }
+
+    /* Styling for the H2 heading */
+
+    h2 {
+        font-size: 100px; /* Larger font size for visibility */
+        text-align: center; /* Centers the heading */
+        color: #009879; /* Matching the table header color */
+        margin-top: 0; /* Reduce spacing if necessary */
+        padding-top: 20px; /* Additional padding at the top */
+    }
+
+    /* Media queries for very small devices */
+    @media (max-width: 768px) {
+        .fl-table, .fl-table thead, .fl-table tbody,
+        .fl-table th, .fl-table td, .fl-table tr {
+            display: block;
+        }
+
+        .fl-table thead tr {
+            position: absolute;
+            top: -9999px;
+            left: -9999px;
+        }
+
+        .fl-table tr {
+            margin-bottom: 10px;
+            background-color: #fff;
+        }
+
+        .fl-table td {
+            border: none;
+            border-bottom: 1px solid #ddd;
+            position: relative;
+            padding-left: 50%;
+            text-align: left;
+            font-size: 0.9em;
+        }
+
+        .fl-table td:before {
+            position: absolute;
+            top: 6px;
+            left: 6px;
+            width: 45%;
+            padding-right: 10px;
+            white-space: nowrap;
+            font-weight: bold;
+            text-transform: uppercase;
+            color: #009879;
+            content: attr(data-th); /* Dynamic content from data attribute */
+        }
+
+        .main {
+            max-width: 1200px; /* Increases max-width for larger screens */
+        }
+    }
+}

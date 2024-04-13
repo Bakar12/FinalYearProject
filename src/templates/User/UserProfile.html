@@ -1,9 +1,9 @@
 {% extends 'base.html' %}
 {% block content %}
 <div class="sidenav">
-    <a href="{{ url_for('profile') }}">Profile</a>
-    <a href="{{ url_for('history') }}">History</a>
-    <a href="{{ url_for('logout') }}">Logout</a>
+    <a href="{{ url_for('user_routes.profile') }}">Profile</a>
+    <a href="{{ url_for('user_routes.history') }}">History</a>
+    <a href="{{ url_for('user_routes.logout') }}">Logout</a>
 </div>
 
 <div class="main">

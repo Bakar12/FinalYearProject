@@ -1,0 +1,30 @@
+{% extends 'Admin/AdminBase.html' %}
+{% block content %}
+<div class="main">
+    <h2>Modify Admin</h2>
+    <form action="/update_admin_permissions" method="post">
+        <input type="hidden" name="admin_id" value="{{ admin_id }}">
+        <div>
+            <label for="canSeeFeedback">Can See Feedback:</label>
+            <input type="checkbox" id="canSeeFeedback" name="canSeeFeedback" {% if permissions[1] %}checked{% endif %}>
+        </div>
+        <div>
+            <label for="canSeeSecurityLogs">Can See Security Logs:</label>
+            <input type="checkbox" id="canSeeSecurityLogs" name="canSeeSecurityLogs" {% if permissions[2] %}checked{% endif %}>
+        </div>
+        <div>
+            <label for="canAddViewDoctors">Can Add/View Doctors:</label>
+            <input type="checkbox" id="canAddViewDoctors" name="canAddViewDoctors" {% if permissions[3] %}checked{% endif %}>
+        </div>
+        <div>
+            <label for="canDeleteViewUsers">Can Delete/View Users:</label>
+            <input type="checkbox" id="canDeleteViewUsers" name="canDeleteViewUsers" {% if permissions[4] %}checked{% endif %}>
+        </div>
+        <div>
+            <label for="canAddDeleteAdmins">Can Add/Delete Admins:</label>
+            <input type="checkbox" id="canAddDeleteAdmins" name="canAddDeleteAdmins" {% if permissions[5] %}checked{% endif %}>
+        </div>
+        <button type="submit">Update Permissions</button>
+    </form>
+</div>
+{% endblock %}

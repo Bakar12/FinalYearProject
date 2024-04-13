@@ -1,0 +1,26 @@
+{% extends 'Admin/AdminBase.html' %}
+{% block content %}
+<div class="main">
+    <h2>Confirm New Doctor</h2>
+    <p>First Name: {{ doctor.first_name }}</p>
+    <p>Last Name: {{ doctor.last_name }}</p>
+    <p>Email: {{ doctor.email }}</p>
+    <p>Mobile: {{ doctor.mobile }}</p>
+    <p>Gender: {{ doctor.gender }}</p>
+    <p>Date of Birth: {{ doctor.dob }}</p>
+    <p>Hospital Affiliation: {{ doctor.hospital_affiliation }}</p>
+    <p>Specialization: {{ doctor.specialization }}</p>
+    <p>Qualifications: {{ doctor.qualifications }}</p>
+    <p>State License Number: {{ doctor.state_license_number }}</p>
+    <p>Contact Information: {{ doctor.contact_information }}</p>
+    <p>Department: {{ doctor.department }}</p>
+    <p>Biography: {{ doctor.biography }}</p>
+    <form action="/add_doctor_confirmed" method="post">
+        {% for field, value in doctor.items() %}
+        <input type="hidden" name="{{ field }}" value="{{ value }}">
+        {% endfor %}
+        <button class="confirm" type="submit">Confirm</button>
+    </form>
+    <button onclick="window.history.back()">Cancel</button>
+</div>
+{% endblock %}

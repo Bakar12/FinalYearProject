@@ -1,0 +1,11 @@
+<!-- ConfirmDeleteDoctor.html -->
+{% extends 'Admin/AdminBase.html' %}
+{% block content %}
+<div class="main">
+    <h2>Confirm Delete</h2>
+    <p>Are you sure you want to delete this doctor?</p>
+    <form action="{{ url_for('admin_routes.delete_doctor_confirmed', doctor_id=doctor_id) }}" method="post">
+        <button type="submit">Confirm</button>
+    </form>
+</div>
+{% endblock %}

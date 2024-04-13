@@ -3,29 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <title>{% block title %}{% endblock %}</title>
-    <link href="/static/css/main.css" rel="stylesheet">
-    <link href="/static/css/footer.css" rel="stylesheet">
-    <link href="/static/css/navbar.css" rel="stylesheet">
-    <link href="/static/css/forms.css" rel="stylesheet">
-    <link href="/static/css/symptomInput.css" rel="stylesheet">
-    <link href="/static/css/responsive.css" rel="stylesheet">
-    <link href="/static/css/result.css" rel="stylesheet">
-    <link href="/static/css/DoctorAdminChoicePage.css" rel="stylesheet">
-    <link href="/static/css/UserProfile.css" rel="stylesheet">
-    <link href="/static/css/AddAdmin.css" rel="stylesheet">
-    <link href="/static/css/AdminListTable.css" rel="stylesheet">
-    <link href="/static/Images/logo/logo2NoBackground.png" rel="icon">
-    <script src="/static/js/multiStepForm.js"></script>
-    <script src="/static/js/symptomInputStep.js"></script>
-    <script src="/static/js/passwordValidation.js"></script>
-    <script src="/static/js/DoctorAdminLogin.js"></script>
+    <link href="/static/admin/css/mainAdmin.css" rel="stylesheet">
+    <link href="/static/admin/css/footerAdmin.css" rel="stylesheet">
+    <link href="/static/admin/css/navbarAdmin.css" rel="stylesheet">
+    <link href="/static/admin/css/AddAdmin.css" rel="stylesheet">
+    <link href="/static/admin/css/AdminListTable.css" rel="stylesheet">
+    <link href="/static/admin/css/AdminSecurityLogTable.css" rel="stylesheet">
+    <link href="/static/common/Images/logo/logo2NoBackground.png" rel="icon">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
 <body>
 <!-- Header -->
 <div class="header-container">
     <!-- Logo -->
     <h1 class="logo">
-        <img alt="Logo" src="/static/Images/logo/logo2NoBackground.png">
+        <img alt="Logo" src="/static/common/Images/logo/logo2NoBackground.png">
         Symptom Diagnoses Admin
     </h1>
     <!-- Search bar -->
@@ -45,6 +38,10 @@
             <!-- User Feedback link -->
             <li class="nav-item">
                 <a class="nav-link" href="/user_feedback">User Feedback</a>
+            </li>
+            <!-- User  -->
+            <li class="nav-item">
+                <a class="nav-link" href="/users">Users</a>
             </li>
             <!-- Security Logs link -->
             <li class="nav-item">
@@ -86,31 +83,6 @@
 
 <!-- Content block -->
 {% block content %}{% endblock %}
-
-<!-- Footer -->
-<footer>
-    <div class="footer-container">
-        <div class="footer-content">
-            <h3>Symptom Diagnoses</h3>
-            <p>Your reliable partner in health.</p>
-            <ul class="footer-links">
-                <li><a href="/about">About Us</a></li>
-                <li><a href="/contact-us">Contact</a></li>
-                <li><a href="/terms">Terms of Service</a></li>
-                <li><a href="/privacy">Privacy Policy</a></li>
-            </ul>
-        </div>
-        <div class="footer-social-media">
-            <!-- Social media links or icons could go here -->
-            <a href="#">Facebook</a> |
-            <a href="#">Twitter</a> |
-            <a href="#">LinkedIn</a>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2023 Symptom Diagnoses. All rights reserved.</p>
-        </div>
-    </div>
-</footer>
 
 </body>
 </html>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="">
 <head>
-<title>Login Page</title>
+    <title>Login Page</title>
 
 </head>
 <body>
@@ -11,7 +11,7 @@
 {% block content %}
 <aside class="side-panel">
     <div class="logo-container">
-        <img src="" alt="Logo" class="logoSidePanel">
+        <img alt="Logo" class="logoSidePanel" src="">
         <h1>Title/Logo</h1>
         <p>Description of the site or service</p>
     </div>
@@ -22,13 +22,16 @@
         <form action="/login_admin" method="post">
             <div>
                 <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
+                <input id="email" name="email" required type="email">
             </div>
             <div>
                 <label for="password">Password:</label>
-                <input type="password" id="password" name="password" required>
+                <input id="password" name="password" required type="password">
             </div>
-            <button type="submit" class="form-navigation-button">Login</button>
+            {% if warning %}
+            <p>{{ warning }}</p>
+            {% endif %}
+            <button class="form-navigation-button" type="submit">Login</button>
 
 
         </form>

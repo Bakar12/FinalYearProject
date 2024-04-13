@@ -1,0 +1,11 @@
+GreetSearchCV offers 3-4 tools (Algorithms) to check for the best. Automatic process.
+- Create tool 
+- GridSearchCV
+- Check the set of tools aginst dataset
+- Assign appropriate datset based onthe form uer submitted
+- Our novelty will be automatically based 
+
+
+Viva 
+- Understand Data
+- Understand Fnctionality

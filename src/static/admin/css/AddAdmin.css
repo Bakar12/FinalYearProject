@@ -1,0 +1,77 @@
+/* Main container styling to ensure consistency */
+.main {
+    width: 90%;  /* Use maximum width but not full for better form readability */
+    max-width: 600px;  /* Narrower max-width to better fit the form's layout */
+    margin: 50px auto;  /* Increased top margin and centered horizontally */
+    padding: 20px;  /* Padding for internal spacing */
+    border-radius: 8px;  /* Rounded corners for soft appearance */
+    display: flex;  /* Using flex to center align items */
+    flex-direction: column;  /* Stack items vertically */
+    align-items: center;  /* Center-align the content */
+}
+
+h2 {
+    text-align: center;  /* Center the heading */
+    color: #009879;  /* Stylish dark green color, consistent with table headers */
+    margin-bottom: 20px;  /* Spacing after the title */
+    font-size: 24px;  /* Larger font size for emphasis */
+}
+
+/* Styles for form elements */
+form {
+    width: 100%;  /* Full width of its container for alignment */
+}
+
+form div {
+    width: 100%;  /* Ensure div takes full width for consistency */
+    margin-bottom: 15px;  /* Space between form fields */
+}
+
+label {
+    display: block;  /* Make labels block to align input under them */
+    color: #333;  /* Dark color for text */
+    margin-bottom: 5px;  /* Small space between label and input */
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="date"],
+select {
+    width: 100%;  /* Full width to fill container */
+    padding: 10px;  /* Adequate padding for typing comfort */
+    border: 1px solid #ccc;  /* Subtle border */
+    border-radius: 4px;  /* Slight rounding of corners */
+}
+
+input[type="checkbox"] {
+    margin-top: 2px;  /* Align checkbox slightly with label */
+}
+
+/* Enhanced button styling */
+button {
+    background-color: #4CAF50;  /* Consistent green background for buttons */
+    color: white;  /* White text on buttons */
+    border: none;
+    padding: 12px 25px;  /* Increased padding for more prominence */
+    display: block;  /* Block level to take full width */
+    width: auto;  /* Auto width for better control */
+    cursor: pointer;
+    text-align: center;
+    font-size: 18px;  /* Larger font size for better visibility */
+    margin: 20px auto;  /* Auto margins to center and increased space from last field */
+    border-radius: 5px;  /* Rounded corners for the button */
+}
+
+button:hover {
+    background-color: #45a049;  /* Slightly darker green on hover */
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+    .main {
+        width: 95%;  /* Slightly more width for smaller screens */
+        padding: 15px;
+        margin: 30px auto;  /* Adjusted for smaller screens */
+    }
+}

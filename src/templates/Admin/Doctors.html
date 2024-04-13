@@ -1,19 +1,48 @@
 {% extends 'Admin/AdminBase.html' %}
 {% block content %}
 <div class="main">
-    <h2>Doctors</h2>
-    {% if doctors %}
-    <div class="doctors-list">
-        {% for doctor in doctors %}
-        <div class="doctor-item">
-            [...]
+    <div class="table-wrapper">
+        <div class="fl-table">
+            <h2>DOCTOR LIST</h2>
+
+            <button><a href="/add_doctor">Add Doctor</a></button>
+            <table>
+                <tr>
+                    <th>ID</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Email</th>
+                    <th>Gender</th>
+
+                    <th>Hospital Affiliation</th>
+                    <th>Specialisation</th>
+                    <th>Qualifications</th>
+                    <th>State License Number</th>
+                    <th>Contact Information</th>
+                    <th>Department</th>
+                    <th>Biography</th>
+                </tr>
+                {% for doctor in doctors %}
+                <tr>
+                    <td>{{ doctor.doctor_id }}</td>
+                    <td>{{ doctor.first_name }}</td>
+                    <td>{{ doctor.last_name }}</td>
+                    <td>{{ doctor.email }}</td>
+                    <td>{{ doctor.gender }}</td>
+                    <td>{{ doctor.hospital_affiliation }}</td>
+                    <td>{{ doctor.specialization }}</td>
+                    <td>{{ doctor.qualifications }}</td>
+                    <td>{{ doctor.state_license_number }}</td>
+                    <td>{{ doctor.contact_information }}</td>
+                    <td>{{ doctor.department }}</td>
+                    <td>{{ doctor.biography }}</td>
+                    <td>
+                        <button type="button"><a href="{{ url_for('admin_routes.confirm_delete_doctor', doctor_id=doctor.doctor_id) }}">Delete</a></button>
+                    </td>
+                </tr>
+                {% endfor %}
+            </table>
         </div>
-        {% endfor %}
     </div>
-    {% else %}
-    <div class="empty-message">
-        <p>No doctors available.</p>
-    </div>
-    {% endif %}
 </div>
 {% endblock %}

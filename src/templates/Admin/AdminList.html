@@ -4,10 +4,9 @@
 <div class="main">
     <div class="table-wrapper">
         <div class="fl-table">
-            <h2>Admin List</h2>
+            <h2>ADMIN LIST</h2>
 
             {% if session.permissions[4] %}
-            <h3>Add Admin</h3>
             <button><a href="/add_admin">Add Admin</a></button>
             {% endif %}
             <table>
@@ -41,7 +40,15 @@
                     <td>{% if permission[5] %}✔️{% else %}❌{% endif %}</td>
                     <td>
                         {% if session.permissions[4] %}
-                        <button type="button">Modify</button>
+                        <a href="{{ url_for('admin_routes.modify_admin', admin_id=admin[0]) }}">
+                            <button type="button">Modify</button>
+                        </a> {% endif %}
+                    </td>
+                    <td>
+                        {% if session.permissions[4] %}
+                        <button type="button"><a
+                                href="{{ url_for('admin_routes.confirm_delete_admin', admin_id=admin[0]) }}">Delete</a>
+                        </button>
                         {% endif %}
                     </td>
 
@@ -50,4 +57,5 @@
             </table>
         </div>
     </div>
-    {% endblock %}
+</div>
+{% endblock %}

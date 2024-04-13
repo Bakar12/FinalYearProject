@@ -161,15 +161,31 @@ CREATE TABLE Feedback (
 """)
 
 c.execute("""
+CREATE TABLE AdminActions (
+    ActionID INTEGER PRIMARY KEY AUTOINCREMENT,
+    AdminID INTEGER,
+    ActionType TEXT,
+    ActionDate DATETIME,
+    ActionDetails TEXT,
+    FOREIGN KEY (AdminID) REFERENCES Admins(AdminID)
+);
+""")
+# Delete the existing AdminPermissions table
+c.execute("DROP TABLE IF EXISTS SecurityLogs;")
+
+c.execute("""
 CREATE TABLE SecurityLogs (
     LogID INTEGER PRIMARY KEY AUTOINCREMENT,
-    UserID INTEGER,
+    UserID INTEGER NULL,
+    AdminID INTEGER NULL,
     ActionType TEXT,
     ActionDate DATE,
     ActionDetails TEXT,
-    FOREIGN KEY (UserID) REFERENCES Users(UserID)
+    FOREIGN KEY (UserID) REFERENCES Users(UserID),
+    FOREIGN KEY(AdminID) REFERENCES Admins(AdminID)
 );
 """)
+
 
 c.execute("""
 CREATE TABLE HealthRecords (

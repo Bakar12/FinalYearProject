@@ -17,7 +17,7 @@
         {% for field, value in admin.items() %}
         <input type="hidden" name="{{ field }}" value="{{ value }}">
         {% endfor %}
-        <button type="submit">Confirm</button>
+        <button class="confirm" type="submit">Confirm</button>
     </form>
     <button onclick="window.history.back()">Cancel</button>
 </div>

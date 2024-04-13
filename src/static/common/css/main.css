@@ -4,7 +4,7 @@ body {
     font-size: 18px; /* Adjust as needed */
     line-height: 1.5;
     color: #333; /* Darker text for better contrast */
-    margin: 0;
+    margin: 100px;
     padding-top: 200px;
     padding-bottom: 50px;
 
@@ -54,4 +54,11 @@ body {
 }
 .hero img {
     width: 100%;
+}
+
+.main{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 200px;
 }
