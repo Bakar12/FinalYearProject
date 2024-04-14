@@ -1,19 +1,35 @@
 {% extends 'Admin/AdminBase.html' %}
 {% block content %}
+
 <div class="main">
-    <h2>User Feedback</h2>
-    {% if feedbacks %}
-    <div class="feedback-list">
-        {% for feedback in feedbacks %}
-        <div class="feedback-item">
-            [...]
+
+    <div class="table-wrapper">
+        <div class="fl-table">
+            {% if session.permissions[0] %}
+
+            <h2>User Feedback</h2>
+            <table>
+                <tr>
+                    <th>Feedback ID</th>
+                    <th>User ID</th>
+                    <th>Feedback Date</th>
+                    <th>Feedback Content</th>
+                </tr>
+                {% for feedback in feedbacks %}
+                <tr>
+                    <td>{{ feedback.feedback_id }}</td>
+                    <td>{{ feedback.user_id }}</td>
+                    <td>{{ feedback.feedback_date }}</td>
+                    <td>{{ feedback.feedback_content }}</td>
+
+                    {% endfor %}
+                </tr>
+
+            </table>
+            {% else %}
+            <p>You do not have permission to view this content. Please contact your manager for access.</p>
+            {% endif %}
         </div>
-        {% endfor %}
     </div>
-    {% else %}
-    <div class="empty-message">
-        <p>No feedback available.</p>
-    </div>
-    {% endif %}
 </div>
 {% endblock %}

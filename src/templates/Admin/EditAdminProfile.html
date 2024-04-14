@@ -1,0 +1,31 @@
+{% extends 'Admin/AdminBase.html' %}
+{% block content %}
+<style>
+    h2 {
+        font-size: 100px; /* Larger font size for visibility */
+        text-align: center; /* Centers the heading */
+        color: #009879; /* Matching the table header color */
+        margin-top: 0; /* Reduce spacing if necessary */
+        padding-top: 20px; /* Additional padding at the top */
+    }
+
+.editprofile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    padding-bottom: 300px;
+}
+</style>
+<div class="main">
+    <h2>Edit Profile</h2>
+        <form class="editprofile" action="{{ url_for('admin_routes.edit_admin_profile') }}" method="post">
+            <label for="email">Email:</label><br>
+            <input type="email" id="email" name="email" value="{{ admin.Email }}" required><br>
+            <label for="mobile">Mobile:</label><br>
+            <input type="text" id="mobile" name="mobile" value="{{ admin.mobile }}" required><br>
+            <input type="submit" class="btn btn-primary" value="Submit">
+        </form>
+</div>
+{% endblock %}

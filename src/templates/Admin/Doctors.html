@@ -4,8 +4,11 @@
     <div class="table-wrapper">
         <div class="fl-table">
             <h2>DOCTOR LIST</h2>
+            {% if session.permissions[2] %}
+
 
             <button><a href="/add_doctor">Add Doctor</a></button>
+            {% endif %}
             <table>
                 <tr>
                     <th>ID</th>
@@ -36,9 +39,13 @@
                     <td>{{ doctor.contact_information }}</td>
                     <td>{{ doctor.department }}</td>
                     <td>{{ doctor.biography }}</td>
+                    {% if session.permissions[4] %}
+
                     <td>
                         <button type="button"><a href="{{ url_for('admin_routes.confirm_delete_doctor', doctor_id=doctor.doctor_id) }}">Delete</a></button>
                     </td>
+                    {% endif %}
+
                 </tr>
                 {% endfor %}
             </table>

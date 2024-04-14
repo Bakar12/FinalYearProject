@@ -38,19 +38,23 @@
                     <td>{% if permission[3] %}✔️{% else %}❌{% endif %}</td>
                     <td>{% if permission[4] %}✔️{% else %}❌{% endif %}</td>
                     <td>{% if permission[5] %}✔️{% else %}❌{% endif %}</td>
+
+                    {% if session.permissions[4] %}
                     <td>
-                        {% if session.permissions[4] %}
+
                         <a href="{{ url_for('admin_routes.modify_admin', admin_id=admin[0]) }}">
                             <button type="button">Modify</button>
-                        </a> {% endif %}
+                        </a>
                     </td>
+                    {% endif %}
+                    {% if session.permissions[4] %}
+
                     <td>
-                        {% if session.permissions[4] %}
                         <button type="button"><a
                                 href="{{ url_for('admin_routes.confirm_delete_admin', admin_id=admin[0]) }}">Delete</a>
                         </button>
-                        {% endif %}
                     </td>
+                    {% endif %}
 
                 </tr>
                 {% endfor %}

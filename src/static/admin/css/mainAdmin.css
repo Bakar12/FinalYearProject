@@ -65,3 +65,33 @@ body {
         flex-grow: 1;
 
 }
+/* Button styling for Edit Profile */
+.btn {
+    background-color: #4CAF50;  /* Green background, consistent with other buttons */
+    color: white;  /* White text for readability */
+    padding: 10px 20px;  /* Adequate padding for button size */
+    text-align: center;  /* Center the text inside the button */
+    text-decoration: none;  /* Remove underline from link */
+    display: inline-block;  /* Allows the link to be styled like a block but inline */
+    font-size: 16px;  /* Visible font size */
+    border: none;  /* No border for a clean look */
+    border-radius: 5px;  /* Rounded corners for a modern appearance */
+    cursor: pointer;  /* Pointer cursor on hover */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);  /* Subtle shadow for 3D effect */
+    transition: background-color 0.3s, box-shadow 0.3s;  /* Smooth transition for hover effects */
+}
+
+.btn-primary {
+    background-color: #11ff00;  /* Primary button color, a bright blue */
+}
+
+.btn:hover, .btn-primary:hover {
+    background-color: #0e8325;  /* Darker shade on hover for better interaction */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);  /* Deeper shadow on hover fo
+    r a 'lifted' effect */
+}
+
+/* Ensuring the button fits well with any surrounding elements */
+.btn + .btn {
+    margin-left: 10px;  /* Space between buttons if they are next to each other */
+}

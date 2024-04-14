@@ -1,28 +1,37 @@
 {% extends 'Admin/AdminBase.html' %}
 {% block content %}
+<style>
+    h2 {
+        font-size: 100px; /* Larger font size for visibility */
+        text-align: center; /* Centers the heading */
+        color: #009879; /* Matching the table header color */
+        margin-top: 0; /* Reduce spacing if necessary */
+        padding-top: 20px; /* Additional padding at the top */
+    }
+</style>
 <div class="main">
     <h2>Profile</h2>
-    <div class="profile-info centered">
-
-        <div class="profile-pic">
-            <form action="/upload" enctype="multipart/form-data" method="post">
-                <input id="file" name="profile_pic" onchange="loadFile(event)" type="file"/>
-                <input type="submit" value="Upload">
-            </form>
-        </div>
-        <div>
-            <span>First Name: <span id="first_name">{{ admin.FirstName }}</span></span>
-        </div>
-        <div>
-            <span>Last Name: <span id="last_name">{{ admin.Surname }}</span></span>
-        </div>
-        <div>
-            <span>Gender: <span id="gender">{{ admin.Gender }}</span></span>
-        </div>
-        <div>
-            <span>Date of Birth: <span id="dob">{{ admin.DateOfBirth }}</span></span>
-        </div>
+<div class="profile-info centered">
+    <div>
+        <span>First Name: <span id="first_name">{{ admin.FirstName }}</span></span>
     </div>
+    <div>
+        <span>Last Name: <span id="last_name">{{ admin.Surname }}</span></span>
+    </div>
+    <div>
+        <span>Email: <span id="email">{{ admin.Email }}</span></span>
+    </div>
+    <div>
+        <span>Mobile Number: <span id="mobile">{{ admin.mobile }}</span></span>
+    </div>
+    <div>
+        <span>Gender: <span id="gender">{{ admin.Gender }}</span></span>
+    </div>
+    <div>
+        <span>Date of Birth: <span id="dob">{{ admin.DateOfBirth }}</span></span>
+    </div>
+    <a href="{{ url_for('admin_routes.edit_admin_profile_form') }}" class="btn btn-primary">Edit Profile</a>
+</div>
 </div>
 
 {% endblock %}

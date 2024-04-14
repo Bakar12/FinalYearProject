@@ -1,20 +1,71 @@
 {% extends 'Admin/AdminBase.html' %}
 {% block content %}
 <div class="main">
-    <div class="tab">
-        <button class="tablinks" onclick="openLogs(event, 'UserLogs')">User Logs</button>
-        <button class="tablinks" onclick="openLogs(event, 'AdminLogs')">Admin Logs</button>
-    </div>
+    <div class="table-wrapper">
+        <div class="fl-table">
+            <div class="tab">
 
-    <div class="tabcontent" id="UserLogsTab">
-        <h3>User Logs</h3>
-        <div id="userLogs"></div>
-    </div>
+                {% if session.permissions[1] %}
 
-    <div class="tabcontent" id="AdminLogsTab">
-        <h3>Admin Logs</h3>
-        <div id="adminLogs"></div>
+                <button class="tablinks" onclick="openTable(event, 'UserLogs')">User Logs</button>
+                <button class="tablinks" onclick="openTable(event, 'AdminActions')">Admin Actions</button>
+
+                {% else %}
+
+                <p>You do not have permission to view this content. Please contact your manager for access.</p>
+                {% endif %}
+
+            </div>
+            <div class="tabcontent" id="UserLogs">
+                <h2>User Logs</h2>
+                <table>
+                    <tr>
+                        <th>Log ID</th>
+                        <th>User ID</th>
+                        <th>Action Type</th>
+                        <th>Action Date</th>
+                        <th>Action Details</th>
+                    </tr>
+                    <!-- Security Logs -->
+                    {% for log in security_logs %}
+                    <tr>
+                        <td>{{ log[0] }}</td>
+                        <td>{{ log[1] }}</td>
+                        <td>{{ log[3] }}</td>
+                        <td>{{ log[4] }}</td>
+                        <td>{{ log[5] }}</td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="tabcontent" id="AdminActions">
+        <div class="table-wrapper">
+            <div class="fl-table">
+                <h2>Admin Logs</h2>
+                <table>
+                    <!-- Table headers -->
+                    <tr>
+                        <th>Action ID</th>
+                        <th>Admin ID</th>
+                        <th>Action Type</th>
+                        <th>Action Date</th>
+                        <th>Action Details</th>
+                    </tr>
+                    <!-- Table data -->
+                    {% for action in admin_actions %}
+                    <tr>
+                        <td>{{ action[0] }}</td>
+                        <td>{{ action[1] }}</td>
+                        <td>{{ action[2] }}</td>
+                        <td>{{ action[3] }}</td>
+                        <td>{{ action[4] }}</td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
     </div>
 </div>
-
 {% endblock %}

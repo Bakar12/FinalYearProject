@@ -197,8 +197,16 @@ CREATE TABLE HealthRecords (
 );
 """)
 
+
 # Commit your changes
 conn.commit()
 
 # Close the connection
+conn.close()
+
+cursor = conn.cursor()
+cursor.execute('ALTER TABLE Feedback ADD COLUMN read BOOLEAN DEFAULT 0')
+cursor.execute('ALTER TABLE Feedback ADD COLUMN addressed BOOLEAN DEFAULT 0')
+conn.commit()
+cursor.close()
 conn.close()

@@ -1,0 +1,22 @@
+
+h2 {
+    text-align: center;  /* Center the heading */
+    color: #009879;  /* Dark green color, consistent with other headers */
+    margin-bottom: 20px;  /* Spacing after the title */
+    font-size: 24px;  /* Larger font size for emphasis */
+}
+
+/* Profile info styling */
+.profile-info {
+    width: 100%;  /* Full width to use the space efficiently */
+    display: flex;
+    flex-direction: column;
+    align-items: center;  /* Center align the content for better focus */
+    padding-bottom: 400px;
+}
+
+
+span {
+    font-size: 30px;  /* Adequate font size for readability */
+    color: #333;  /* Dark gray color for better readability */
+}
