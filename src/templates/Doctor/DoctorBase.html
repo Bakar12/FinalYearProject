@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+    <link href="/static/admin/css/mainAdmin.css" rel="stylesheet">
+    <link href="/static/admin/css/navbarAdmin.css" rel="stylesheet">
+    <link href="/static/admin/css/AddAdmin.css" rel="stylesheet">
+    <link href="/static/admin/css/AdminListTable.css" rel="stylesheet">
+    <link href="/static/admin/css/AdminSecurityLogTable.css" rel="stylesheet">
+    <link href="/static/admin/css/ProfilePage.css" rel="stylesheet">
+    <link href="/static/common/Images/logo/logo2NoBackground.png" rel="icon">
+    <script src="/static/admin/js/SecurityLogsTabs.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+<!-- Header -->
+<div class="header-container">
+    <!-- Logo -->
+    <h1 class="logo">
+        <img alt="Logo" src="/static/common/Images/logo/logo2NoBackground.png">
+        Symptom Diagnoses Admin
+    </h1>
+    <!-- Search bar -->
+    <label class="search-bar">
+        <input placeholder="Search.." type="text">
+    </label>
+</div>
+
+<!-- Navigation -->
+<nav class="navbar">
+    <div class="navbar-content">
+        <ul class="navbar-nav">
+            <!-- Home link -->
+            <li class="nav-item active">
+                <a class="nav-link" href="/admin_dashboard">Home</a>
+            </li>
+            <!-- User Feedback link -->
+            <li class="nav-item">
+                <a class="nav-link" href="/user_feedback">User Feedback</a>
+            </li>
+            <!-- User  -->
+            <li class="nav-item">
+                <a class="nav-link" href="/users">Users</a>
+            </li>
+            <!-- Security Logs link -->
+            <li class="nav-item">
+                <a class="nav-link" href="/admin_logs">Security Logs</a>
+            </li>
+            <!-- Doctors link -->
+            <li class="nav-item">
+                <a class="nav-link" href="/doctors">Doctors</a>
+            </li>
+            <li class="nav-item">
+                <a href="/admin_list">Admin List</a>
+            </li>
+        </ul>
+        <!-- User Profile and Logout links -->
+        {% if session.logged_in %}
+        <div class="right-nav">
+            <!-- Dropdown Menu Trigger -->
+            <div class="nav-item dropdown">
+                <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown"
+                   href="#"
+                   id="navbarDropdown" role="button">
+                    {{ session.first_name }} {{ session.last_name }}
+
+                </a>
+                <!-- Dropdown Menu Items -->
+                <div aria-labelledby="navbarDropdown" class="dropdown-menu">
+                    <a class="dropdown-item" href="/admin_profile">Profile</a>
+                    <a class="dropdown-item" href="/logout">Logout</a>
+                </div>
+            </div>
+        </div>
+        {% else %}
+        <div class="right-nav">
+            <a class="nav-link" href="/login">Login/Register</a>
+        </div>
+        {% endif %}
+    </div>
+</nav>
+
+<!-- Content block -->
+{% block content %}{% endblock %}
+
+</body>
+</html>

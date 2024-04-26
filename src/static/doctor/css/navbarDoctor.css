@@ -1,0 +1,126 @@
+/* Ensures the header takes the full width and is sticky */
+.header-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 30px;
+    background-color: #009879; /* Dark green, matching the table headers */
+    color: white;
+    position: sticky; /* Makes the header sticky */
+    top: 0; /* Sticks to the top */
+}
+
+.logo img {
+    height: 50px; /* Adjust size as needed */
+    margin-right: 10px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    font-size: 1.5em; /* Larger text for the logo */
+    font-weight: bold;
+}
+
+.search-bar input[type="text"] {
+    padding: 8px;
+    margin-left: 10px;
+    border: none;
+    border-radius: 5px;
+}
+
+
+/* Ensures the navbar takes full width and is directly below the sticky header */
+.navbar {
+    width: 100%;
+    background-color: #007b5e; /* Slightly darker shade for contrast */
+    color: white;
+    padding: 10px 0;
+    position: sticky; /* Makes the navbar sticky */
+    top: 70px; /* Adjust this based on the actual height of your header */
+    z-index: 999; /* Lower than header but still above other content */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Consistent shadow with header */
+}
+
+.navbar-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 30px;
+}
+
+.navbar-nav {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+.navbar-nav {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+.nav-item {
+    margin-right: 20px; /* Space between items */
+}
+
+.nav-item a {
+    color: white;
+    text-decoration: none;
+    font-size: 1em;
+    padding: 10px 15px;
+    display: block;
+}
+
+.nav-item a:hover, .nav-item.active a {
+    background-color: #005743; /* Darker green for hover/active */
+    border-radius: 5px;
+}
+
+.right-nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 1em;
+    padding: 10px 15px;
+    background-color: #005743;
+    border-radius: 5px;
+}
+
+.dropdown-menu {
+    background-color: #009879;
+    border-radius: 5px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    position: absolute;
+    z-index: 1;
+}
+
+.dropdown-item {
+    padding: 12px 16px;
+    display: block;
+    width: 100%;
+    color: white;
+    text-decoration: none;
+}
+
+.dropdown-item:hover {
+    background-color: #005743;
+}
+
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+    padding-top: 120px;
+
+}
+
+/* Ensures that the main content block does not overlap with the navbar */
+.main {
+    padding-top: 20px; /* Space between navbar and content */
+}
