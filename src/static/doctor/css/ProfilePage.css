@@ -1,7 +1,6 @@
-
 h2 {
     text-align: center;  /* Center the heading */
-    color: #009879;  /* Dark green color, consistent with other headers */
+    color: #007BFF;  /* Change to blue, matching the new theme */
     margin-bottom: 20px;  /* Spacing after the title */
     font-size: 24px;  /* Larger font size for emphasis */
 }
@@ -12,11 +11,24 @@ h2 {
     display: flex;
     flex-direction: column;
     align-items: center;  /* Center align the content for better focus */
-    padding-bottom: 400px;
+    padding-bottom: 20px;  /* Adjusted padding to be more reasonable */
 }
 
-
 span {
-    font-size: 30px;  /* Adequate font size for readability */
+    font-size: 18px;  /* Adequate font size for readability */
     color: #333;  /* Dark gray color for better readability */
+    display: block;  /* Makes each span appear on a new line */
+    margin: 5px 0;  /* Spacing for better separation of details */
+}
+
+/* Additional stylings for enhancing the profile page */
+.profile-pic {
+    width: 120px;  /* Set a fixed width for the profile picture */
+    height: 120px;  /* Set a fixed height for the profile picture */
+    background-color: #ccc;  /* Placeholder color */
+    border-radius: 50%;  /* Circular profile picture */
+    margin-bottom: 20px;  /* Space below the picture */
+    background-image: url('/path/to/profile/image.jpg');  /* Path to profile image */
+    background-size: cover;  /* Cover the entire area of the div */
+    background-position: center;  /* Center the background image */
 }

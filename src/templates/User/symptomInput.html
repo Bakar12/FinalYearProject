@@ -1,11 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Stroke Prediction</title>
-    <script src="../static/common/js/multiStepForm.js"></script>
-</head>
-<body>
 {% extends 'base.html' %}
 {% block title %}Symptom Checker{% endblock %}
 {% block content %}
@@ -15,121 +7,341 @@
 
 <h2>Stroke Prediction Form</h2>
 <form action="/predict" method="post">
-     <div id="form-container">
-        <form id="predictionForm">
-            <div class="form-step" id="step-general">
-                <h3>General Information</h3>
-        <!-- Ordinary fields -->
-                Age:
+    <div id="form-container">
+        <div class="form-step" id="step-symptom" style="display:block;">
+            <h3>Symptoms</h3>
+            <div>
+                Yellow Fingers:
                 <label>
-                    <input name="age" placeholder="Age" required type="number">
-                </label><br>
-
-                Gender:
-                <label>
-                    <select name="gender" required>
-                        <option value="0">Male</option>
-                        <option value="1">Female</option>
-                    </select>
-                </label><br>
-                <button type="button" onclick="showNextStep('step-lifestyle')">Next</button>
-            </div>
-            <div class="form-step" id="step-lifestyle" style="display:none;">
-    <h3>Lifestyle Options</h3>
-    Ever Married:
-    <div>
-        <label>
-            <input type="radio" name="ever_married" value="0" required> No
-        </label>
-        <label>
-            <input type="radio" name="ever_married" value="1" required> Yes
-        </label>
-    </div>
-
-    Work Type:
-    <div>
-        <label>
-            <input type="radio" name="work_type" value="0" required> Private
-        </label>
-        <label>
-            <input type="radio" name="work_type" value="1" required> Self-employed
-        </label>
-        <label>
-            <input type="radio" name="work_type" value="2" required> Govt Job
-        </label>
-        <label>
-            <input type="radio" name="work_type" value="3" required> Never Worked
-        </label>
-        <label>
-            <input type="radio" name="work_type" value="4" required> Children
-        </label>
-    </div>
-
-    Smoking Status:
-    <div>
-        <label>
-            <input type="radio" name="smoking_status" value="0" required> Never Smoked
-        </label>
-        <label>
-            <input type="radio" name="smoking_status" value="1" required> Formerly Smoked
-        </label>
-        <label>
-            <input type="radio" name="smoking_status" value="2" required> Smokes
-        </label>
-        <label>
-            <input type="radio" name="smoking_status" value="3" required> Unknown
-        </label>
-    </div>
-
-    Residence Type:
-    <div>
-        <label>
-            <input type="radio" name="Residence_type" value="0" required> Urban
-        </label>
-        <label>
-            <input type="radio" name="Residence_type" value="1" required> Rural
-        </label>
-    </div>
-    <button type="button" onclick="showPreviousStep('step-general')">Previous</button>
-    <button type="button" onclick="showNextStep('step-medical')">Next</button>
-</div>
-
-            <div class="form-step" id="step-medical" style="display:none;">
-                <h3>Medical Information</h3>
-                <!-- Medical fields -->
-                Hypertension:
-                <label>
-                    <select name="hypertension" >
+                    <select name="yellow_fingers" required>
                         <option value="0">No</option>
                         <option value="1">Yes</option>
                     </select>
-                </label><br>
-
-                Heart Disease:
-                <label>
-                    <select name="heart_disease" >
-                        <option value="0">No</option>
-                        <option value="1">Yes</option>
-                    </select>
-                </label><br>
-
-
-                Avg Glucose Level:
-                <label>
-                    <input name="avg_glucose_level" placeholder="Avg Glucose Level" required step="0.01" type="number">
                 </label>
-                <br>
 
-                BMI:
+                Anxiety:
                 <label>
-                    <input name="bmi" placeholder="BMI" required step="0.01" type="number">
-                </label><br>
-                <button type="button" onclick="showPreviousStep('step-medical')">Previous</button>
-                <input type="submit" value="Predict Stroke">
-            </form>
+                    <select name="anxiety" required>
+                        <option value="0">No</option>
+                        <option value="1">Yes</option>
+                    </select>
+                </label>
+
+                Fatigue:
+                <label>
+                    <select name="fatigue" required>
+                        <option value="0">No</option>
+                        <option value="1">Yes</option>
+                    </select>
+                </label>
+
+                Any Allergies:
+                <label>
+                    <select name="allergy" required>
+                        <option value="0">No</option>
+                        <option value="1">Yes</option>
+                    </select>
+                </label>
+
+                Do you Wheeze:
+                <label>
+                    <select name="wheeze" required>
+                        <option value="0">No</option>
+                        <option value="1">Yes</option>
+                    </select>
+                </label>
+
+                Coughing:
+                <label>
+                    <select name="cough" required>
+                        <option value="0">No</option>
+                        <option value="1">Yes</option>
+                    </select>
+                </label>
+
+                Shortness of Breath:
+                <label>
+                    <select name="shortness_of_breath" required>
+                        <option value="0">No</option>
+                        <option value="1">Yes</option>
+                    </select>
+                </label>
+
+                Do you have swallowing difficulties:
+                <label>
+                    <select name="swallowing_difficulty" required>
+                        <option value="0">No</option>
+                        <option value="1">Yes</option>
+                    </select>
+                </label>
+
+                Chest Pain:
+                <label>
+                    <select name="chest_pain" required>
+                        <option value="0">No</option>
+                        <option value="1">Yes</option>
+                    </select>
+                </label>
+
+                Muscle Aches:
+                <label>
+                    <select name="muscle_aches" required>
+                        <option value="0">No</option>
+                        <option value="1">Yes</option>
+                    </select>
+                </label>
+
+                Do you constantly feel tired:
+                <label>
+                    <select name="tiredness" required>
+                        <option value="0">No</option>
+                        <option value="1">Yes</option>
+                    </select>
+                </label>
+
+                Sore Throat:
+                <label>
+                    <select name="sore_throat" required>
+                        <option value="0">No</option>
+                        <option value="1">Yes</option>
+                    </select>
+                </label>
+
+                Do you have a runny nose:
+                <label>
+                    <select name="runny_nose" required>
+                        <option value="0">No</option>
+                        <option value="1">Yes</option>
+                    </select>
+                </label>
+
+                Stuffy Nose:
+                <label>
+                    <select name="stuffy_nose" required>
+                        <option value="0">No</option>
+                        <option value="1">Yes</option>
+                    </select>
+                </label>
+
+                Do you have a fever:
+                <label>
+                    <select name="fever" required>
+                        <option value="0">No</option>
+                        <option value="1">Yes</option>
+                    </select>
+                </label>
+
+                Nausea:
+                <label>
+                    <select name="nausea" required>
+                        <option value="0">No</option>
+                        <option value="1">Yes</option>
+                    </select>
+                </label>
+
+                Are you vomiting:
+                <label>
+                    <select name="vomiting" required>
+                        <option value="0">No</option>
+                        <option value="1">Yes</option>
+                    </select>
+                </label>
+
+                Diarrhea:
+                <label>
+                    <select name="diarrhea" required>
+                        <option value="0">No</option>
+                        <option value="1">Yes</option>
+                    </select>
+                </label>
+
+                Do you have any loss of taste:
+                <label>
+                    <select name="loss_of_taste" required>
+                        <option value="0">No</option>
+                        <option value="1">Yes</option>
+                    </select>
+                </label>
+
+                Do you have difficulty in breathing:
+                <label>
+                    <select name="breathing_difficulty" required>
+                        <option value="0">No</option>
+                        <option value="1">Yes</option>
+                    </select>
+                </label>
+
+                Do you have any loss of smell:
+                <label>
+                    <select name="loss_of_smell" required>
+                        <option value="0">No</option>
+                        <option value="1">Yes</option>
+                    </select>
+                </label>
+
+                Do you have itchy nose:
+                <label>
+                    <select name="itchy_nose" required>
+                        <option value="0">No</option>
+                        <option value="1">Yes</option>
+                    </select>
+                </label>
+
+                Do you have itchy eyes:
+                <label>
+                    <select name="itchy_eyes" required>
+                        <option value="0">No</option>
+                        <option value="1">Yes</option>
+                    </select>
+                </label>
+
+                Do you have itchy mouth:
+                <label>
+                    <select name="itchy_mouth" required>
+                        <option value="0">No</option>
+                        <option value="1">Yes</option>
+                    </select>
+                </label>
+
+                Do you have an itchy inner ear:
+                <label>
+                    <select name="itchy_inner_ear" required>
+                        <option value="0">No</option>
+                        <option value="1">Yes</option>
+                    </select>
+                </label>
+
+                Are you constantly sneezing:
+                <label>
+                    <select name="sneezing" required>
+                        <option value="0">No</option>
+                        <option value="1">Yes</option>
+                    </select>
+                </label>
+
+                Do you have pink eye:
+                <label>
+                    <select name="pink_eye" required>
+                        <option value="0">No</option>
+                        <option value="1">Yes</option>
+                    </select>
+                </label>
             </div>
+
+            <button onclick="showNextStep('step-lifestyle')" type="button">Next</button>
+        </div>
+
+        <div class="form-step" id="step-lifestyle" style="display:none;">
+            <h3>Lifestyle Options</h3>
+            Ever Married:
+            <div>
+                <label>
+                    <select name="ever_married" required>
+                        <option value="0">No</option>
+                        <option value="1">Yes</option>
+                    </select>
+                </label>
+            </div>
+
+            Work Type:
+            <div>
+                <label>
+                    <select name="work_type" required>
+                        <option value="0">Private</option>
+                        <option value="1">Self-employed</option>
+                        <option value="2">Govt Job</option>
+                        <option value="3">Never Worked</option>
+                        <option value="4">Children</option>
+                    </select>
+                </label>
+            </div>
+
+            Smoking Status:
+            <div>
+                <label>
+                    <select name="smoking_status" required>
+                        <option value="0">Never Smoked</option>
+                        <option value="1">Formerly Smoked</option>
+                        <option value="2">Smokes</option>
+                        <option value="3">Unknown</option>
+                    </select>
+                </label>
+            </div>
+
+            Residence Type:
+            <div>
+                <label>
+                    <select name="Residence_type" required>
+                        <option value="0">Urban</option>
+                        <option value="1">Rural</option>
+                    </select>
+                </label>
+            </div>
+
+            Do you feel Peer Pressured:
+            <div>
+                <label>
+                    <select name="peer_pressure" required>
+                        <option value="0">No</option>
+                        <option value="1">Yes</option>
+                    </select>
+                </label>
+            </div>
+
+            Alcohol Consuming:
+            <div>
+                <label>
+                    <select name="alcohol_consuming" required>
+                        <option value="0">No</option>
+                        <option value="1">Yes</option>
+                    </select>
+                </label>
+            </div>
+
+            <button onclick="showPreviousStep('step-symptom')" type="button">Previous</button>
+            <button onclick="showNextStep('step-medical')" type="button">Next</button>
+        </div>
+
+        <div class="form-step" id="step-medical" style="display:none;">
+            <h3>Medical Information</h3>
+            <!-- Medical fields -->
+            Hypertension:
+            <label>
+                <select name="hypertension">
+                    <option value="0">No</option>
+                    <option value="1">Yes</option>
+                </select>
+            </label><br>
+
+            Heart Disease:
+            <label>
+                <select name="heart_disease">
+                    <option value="0">No</option>
+                    <option value="1">Yes</option>
+                </select>
+            </label><br>
+            Chronic Disease:
+            <label>
+                <input name="chronic_disease" required type="radio" value="0"> No
+            </label>
+            <label>
+                <input name="chronic_disease" required type="radio" value="1"> Yes
+            </label>
+
+
+            Avg Glucose Level:
+            <label>
+                <input name="avg_glucose_level" placeholder="Avg Glucose Level" required step="0.01" type="number">
+            </label>
+            <br>
+
+            BMI:
+            <label>
+                <input name="bmi" placeholder="BMI" required step="0.01" type="number">
+            </label><br>
+            <button onclick="showPreviousStep('step-medical')" type="button">Previous</button>
+            <input type="submit" value="Predict Disease">
+        </div>
     </div>
 </form>
 {% endblock %}
-</body>
-</html>

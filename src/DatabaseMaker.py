@@ -210,3 +210,102 @@ cursor.execute('ALTER TABLE Feedback ADD COLUMN addressed BOOLEAN DEFAULT 0')
 conn.commit()
 cursor.close()
 conn.close()
+
+# Connect to your SQLite database
+conn = sqlite3.connect('SymptomDiagnoses.db')
+
+# Create a cursor object
+c = conn.cursor()
+
+# Add a new column 'is_first_login' to the 'Doctors' table
+c.execute("ALTER TABLE Doctors ADD COLUMN is_first_login BOOLEAN DEFAULT 1")
+
+# Commit your changes
+conn.commit()
+
+# Close the connection
+conn.close()
+
+# Connect to your SQLite database
+conn = sqlite3.connect('SymptomDiagnoses.db')
+
+# Create a cursor object
+c = conn.cursor()
+
+# Execute your SQL commands
+c.execute("""
+CREATE TABLE DoctorActions (
+    ActionID INTEGER PRIMARY KEY AUTOINCREMENT,
+    DoctorID INTEGER,
+    ActionType TEXT,
+    ActionDate DATETIME,
+    ActionDetails TEXT,
+    FOREIGN KEY (DoctorID) REFERENCES Doctors(DoctorID)
+);
+""")
+c.execute("ALTER TABLE Admins ADD COLUMN is_first_login BOOLEAN DEFAULT 1")
+
+# Commit your changes
+conn.commit()
+
+# Close the connection
+conn.close()
+
+# Connect to your SQLite database
+conn = sqlite3.connect('SymptomDiagnoses.db')
+
+# Create a cursor object
+c = conn.cursor()
+
+# Create a new table with the desired column name
+c.execute("""
+CREATE TABLE Diagnoses (
+    DiagnosisID INTEGER PRIMARY KEY AUTOINCREMENT,
+    UserID INTEGER,
+    Symptom TEXT,
+    DiagnosisResult TEXT,
+    DiagnosisDate DATETIME,
+    FOREIGN KEY (UserID) REFERENCES Users(UserID)
+);
+""")
+
+# Connect to the SQLite database
+conn = sqlite3.connect('SymptomDiagnoses.db')
+cursor = conn.cursor()
+
+# Create a new table without the 'DiagnosisID' column
+cursor.execute("""
+CREATE TABLE Feedback_new (
+    FeedbackID INTEGER PRIMARY KEY AUTOINCREMENT,
+    UserID INTEGER,
+    FeedbackText TEXT,
+    FeedbackDate DATETIME,
+    FOREIGN KEY (UserID) REFERENCES Users(UserID)
+);
+""")
+
+# Copy the data from the old table to the new one
+cursor.execute("""
+INSERT INTO Feedback_new (FeedbackID, UserID, FeedbackText, FeedbackDate)
+SELECT FeedbackID, UserID, FeedbackText, FeedbackDate FROM Feedback;
+""")
+
+# Delete the old table
+cursor.execute("DROP TABLE Feedback;")
+
+# Rename the new table to the original name
+cursor.execute("ALTER TABLE Feedback_new RENAME TO Feedback;")
+
+# Commit your changes
+conn.commit()
+
+# Close the connection
+conn.close()
+
+
+
+# Commit your changes
+conn.commit()
+
+# Close the connection
+conn.close()

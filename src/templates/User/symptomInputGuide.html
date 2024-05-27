@@ -1,10 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Stroke Prediction Guide</title>
+    <script src="../../static/common/js/multiStepForm.js"></script>
 </head>
 <body>
-$END$
+{% extends 'base.html' %}
+{% block title %}Symptom Checker Guide{% endblock %}
+{% block content %}
+
+<h2>Stroke Prediction Guide</h2>
+
+    <section class="hero">
+        <img alt="Home Page Banner" src="../static/common/Images/banner/symptomDiagnosisBanner2.png">
+        <h2 style="color: red">Disclaimer</h2>
+        <p>This application provides preliminary medical diagnoses based on the information you provide. It is NOT a
+            substitute for professional medical diagnosis, advice, or treatment.</p>
+        <p>Always consult with a qualified healthcare provider for any health concerns, and before making any
+            health-related decisions.</p>
+        <p>Do not solely rely on the results provided by the application.</p>
+
+    </section>
+
+    <!-- Start Button -->
+    <section class="hero">
+        <a href="{{ url_for('user_routes.formsymptom') }}"><button>Start Checking Symptoms</button></a>
+    </section>
+{% endblock %}
 </body>
 </html>

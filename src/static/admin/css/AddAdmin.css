@@ -12,7 +12,7 @@
 
 h2 {
     text-align: center;  /* Center the heading */
-    color: #009879;  /* Stylish dark green color, consistent with table headers */
+    color: #4CAF50;  /* Stylish green color, consistent with table headers */
     margin-bottom: 20px;  /* Spacing after the title */
     font-size: 24px;  /* Larger font size for emphasis */
 }
@@ -29,7 +29,7 @@ form div {
 
 label {
     display: block;  /* Make labels block to align input under them */
-    color: #333;  /* Dark color for text */
+    color: #333;  /* Dark color for text for better readability */
     margin-bottom: 5px;  /* Small space between label and input */
 }
 
@@ -37,19 +37,22 @@ input[type="text"],
 input[type="email"],
 input[type="password"],
 input[type="date"],
+input[type="checkbox"],
 select {
     width: 100%;  /* Full width to fill container */
     padding: 10px;  /* Adequate padding for typing comfort */
     border: 1px solid #ccc;  /* Subtle border */
-    border-radius: 4px;  /* Slight rounding of corners */
+    border-radius: 4px;  /* Slight rounding of corners for aesthetics */
+    box-sizing: border-box; /* Includes padding and border in the width and height */
 }
 
 input[type="checkbox"] {
     margin-top: 2px;  /* Align checkbox slightly with label */
+    width: auto;  /* Reset width for checkboxes to default */
 }
 
 /* Enhanced button styling */
-button {
+.confirm {
     background-color: #4CAF50;  /* Consistent green background for buttons */
     color: white;  /* White text on buttons */
     border: none;
@@ -72,6 +75,6 @@ button:hover {
     .main {
         width: 95%;  /* Slightly more width for smaller screens */
         padding: 15px;
-        margin: 30px auto;  /* Adjusted for smaller screens */
+        margin: 20px auto;  /* Adjusted for smaller screens */
     }
 }

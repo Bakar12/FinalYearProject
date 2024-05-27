@@ -1,0 +1,120 @@
+/* Basic reset for any browser inconsistencies */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4; /* Light grey background */
+}
+
+/* Styling for the hero section */
+.hero {
+    text-align: center;
+    background: #fff; /* White background */
+}
+
+.hero h2 {
+    color: #007bff; /* Blue color for emphasis */
+    margin-bottom: 10px;
+}
+
+.hero p {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.hero button {
+    padding: 10px 20px;
+    background-color: #4CAF50; /* Green color for the primary button */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    margin: 20px;
+
+}
+
+.hero button:hover {
+    background-color: #45a049; /* Darker green on hover */
+
+}
+
+/* Styling for the disclaimer section */
+.disclaimer {
+    background: #e7e7e7; /* Slightly darker background for contrast */
+    padding: 20px;
+    margin: 20px 0;
+}
+
+.disclaimer h2 {
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.disclaimer p {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+/* Styling for the testimonials section */
+.testimonials {
+    padding: 20px;
+    background: #fff; /* White background for clear readability */
+}
+
+.testimonials h2 {
+    color: #007bff; /* Blue color for consistency */
+    margin-bottom: 15px;
+}
+
+.testimonials ul {
+    list-style: none;
+}
+
+.testimonials li {
+    background: #e7e7e7;
+    margin-bottom: 10px;
+    padding: 10px;
+}
+
+/* Styling for the features section */
+.features {
+    padding: 20px;
+    background: #fff; /* White background */
+}
+
+.features h2 {
+    color: #007bff; /* Blue color to match the theme */
+    margin-bottom: 15px;
+}
+
+.features ul {
+    list-style: none;
+    padding: 10px;
+}
+
+.features li {
+    background: #e7e7e7;
+    margin-bottom: 8px;
+    padding: 10px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .hero h2 {
+        font-size: 20px;
+    }
+
+    .hero p,
+    .disclaimer p,
+    .testimonials li,
+    .features li {
+        font-size: 16px;
+    }
+}

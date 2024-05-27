@@ -1,3 +1,4 @@
+<link href="../static/common/css/ContactUs.css" rel="stylesheet">
 {% extends 'base.html' %}
 
 {% block title %}
@@ -7,11 +8,14 @@ Contact
 {% block content %}
 <main>
     <h1>Contact Us</h1>
+    <section class="hero">
+        <img alt="Home Page Banner" src="../static/common/Images/banner/ContactUs.png">
+    </section>
     <form action="/contact" method="post">
         <label for="name">Name:</label><br>
-        <input type="text" id="name" name="name"><br>
+        <input id="name" name="name" type="text"><br>
         <label for="email">Email:</label><br>
-        <input type="email" id="email" name="email"><br>
+        <input id="email" name="email" type="email"><br>
         <label for="message">Message:</label><br>
         <textarea id="message" name="message"></textarea><br>
         <input type="submit" value="Submit">

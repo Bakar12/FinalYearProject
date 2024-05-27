@@ -4,22 +4,29 @@
     <meta charset="UTF-8">
     <title>{% block title %}{% endblock %}</title>
     <link href="/static/admin/css/mainAdmin.css" rel="stylesheet">
-    <link href="/static/admin/css/navbarAdmin.css" rel="stylesheet">
+    <link href="/static/doctor/css/navbarDoctor.css" rel="stylesheet">
     <link href="/static/admin/css/AddAdmin.css" rel="stylesheet">
-    <link href="/static/admin/css/AdminListTable.css" rel="stylesheet">
-    <link href="/static/admin/css/AdminSecurityLogTable.css" rel="stylesheet">
-    <link href="/static/admin/css/ProfilePage.css" rel="stylesheet">
+    <link href="/static/doctor/css/ListTable.css" rel="stylesheet">
+    <link href="/static/doctor/css/ProfilePage.css" rel="stylesheet">
     <link href="/static/common/Images/logo/logo2NoBackground.png" rel="icon">
     <script src="/static/admin/js/SecurityLogsTabs.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
+<style>
+    button {
+ background-color: #0077ff;}
+    .fl-table th {
+        background-color: #0066ff;
+    }
+
+</style>
 <body>
 <!-- Header -->
 <div class="header-container">
     <!-- Logo -->
     <h1 class="logo">
         <img alt="Logo" src="/static/common/Images/logo/logo2NoBackground.png">
-        Symptom Diagnoses Admin
+        Symptom Diagnoses Doctor
     </h1>
     <!-- Search bar -->
     <label class="search-bar">
@@ -33,27 +40,18 @@
         <ul class="navbar-nav">
             <!-- Home link -->
             <li class="nav-item active">
-                <a class="nav-link" href="/admin_dashboard">Home</a>
+                <a class="nav-link" href="/doctor_dashboard">Home</a>
             </li>
-            <!-- User Feedback link -->
-            <li class="nav-item">
-                <a class="nav-link" href="/user_feedback">User Feedback</a>
-            </li>
+
             <!-- User  -->
             <li class="nav-item">
-                <a class="nav-link" href="/users">Users</a>
+                <a class="nav-link" href="/usersDoctor">Users</a>
             </li>
             <!-- Security Logs link -->
             <li class="nav-item">
-                <a class="nav-link" href="/admin_logs">Security Logs</a>
+                <a class="nav-link" href="/diagnosis">Diagnosis</a>
             </li>
-            <!-- Doctors link -->
-            <li class="nav-item">
-                <a class="nav-link" href="/doctors">Doctors</a>
-            </li>
-            <li class="nav-item">
-                <a href="/admin_list">Admin List</a>
-            </li>
+
         </ul>
         <!-- User Profile and Logout links -->
         {% if session.logged_in %}
@@ -68,7 +66,7 @@
                 </a>
                 <!-- Dropdown Menu Items -->
                 <div aria-labelledby="navbarDropdown" class="dropdown-menu">
-                    <a class="dropdown-item" href="/admin_profile">Profile</a>
+                    <a class="dropdown-item" href="/doctor_profile">Profile</a>
                     <a class="dropdown-item" href="/logout">Logout</a>
                 </div>
             </div>

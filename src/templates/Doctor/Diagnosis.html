@@ -1,10 +1,32 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+{% extends 'Doctor/DoctorBase.html' %}
+{% block content %}
+<div class="main">
+    <div class="table-wrapper">
+        <div class="fl-table">
+            <h2>Diagnosis List</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Diagnosis ID</th>
+                        <th>User ID</th>
+                        <th>Symptom ID</th>
+                        <th>Diagnosis Result</th>
+                        <th>Diagnosis Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for diagnosis in diagnoses %}
+                    <tr>
+                        <td>{{ diagnosis.DiagnosisID }}</td>
+                        <td>{{ diagnosis.UserID }}</td>
+                        <td>{{ diagnosis.SymptomID }}</td>
+                        <td>{{ diagnosis.DiagnosisResult }}</td>
+                        <td>{{ diagnosis.DiagnosisDate }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -2,6 +2,8 @@
 <html lang="en">
 <head>
     <title>Prediction Result</title>
+    <link href="/static/common/css/result.css" rel="stylesheet">
+
 </head>
 <body>
 {% extends 'base.html' %}
@@ -11,8 +13,14 @@
 <div class="content">
 
     <h2>Prediction Result</h2>
-    <p>The predicted likelihood of a stroke is: {{ prediction }} %</p>
-    <a href="/">Try again</a>
+    <p class = "disease">The predicted likelihood of a {{disease}} is:</p>
+
+    <p class = "prediction">{{ prediction }} %</p>
+
+        <!-- Display the disease description -->
+    <p class = "description">{{ description }}</p>
+
+    <a class = "feedback" href="/feedback">Next</a>
 </div>
 {% endblock %}
 </body>

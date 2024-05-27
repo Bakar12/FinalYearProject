@@ -1,0 +1,23 @@
+<link href="/static/common/css/feedback.css" rel="stylesheet">
+{% extends 'base.html' %}
+{% block title %}Disclaimer{% endblock %}
+{% block content %}
+<h2>FeedBack</h2>
+<form action="/feedback" method="post">
+    <!-- Hidden field for user ID -->
+    <input type="hidden" name="user_id" value="{{ user_id }}">
+
+    <!-- Textarea for feedback -->
+    <div >
+        <label for="feedback_text">Your Feedback:</label>
+        <textarea id="feedback_text" name="feedback_text" rows="4" cols="50" required></textarea>
+    </div>
+
+    <input type="submit" value="Submit Feedback">
+</form>
+
+    <!-- Add a skip button -->
+    <form action="/skip_feedback" method="get">
+        <input type="submit" value="Skip">
+    </form>
+{% endblock %}

@@ -1,0 +1,61 @@
+/* Main container for dashboard content */
+.main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%; /* Full width to use available space */
+    max-width: 800px; /* Limiting max-width for better readability */
+    padding: 20px;
+    margin: auto; /* Centering the main container */
+    background: #fff; /* White background for clarity */
+    border-radius: 8px; /* Rounded corners for a modern look */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Subtle shadow for depth */
+}
+
+/* Heading for the dashboard page */
+.main h2 {
+    text-align: center; /* Centers the main heading */
+    color: #4CAF50; /* Blue for a consistent thematic color */
+    margin-bottom: 20px; /* Space below the heading */
+}
+
+/* Styling for the dashboard sections */
+.dashboard-section {
+    padding: 15px;
+    margin: 10px 0; /* Spacing between sections */
+    background-color: #f9f9f9; /* Light grey background for section areas */
+    border-radius: 5px; /* Rounded corners for sections */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.15); /* Light shadow for 3D effect */
+}
+
+.dashboard-section h3 {
+    color: #4CAF50; /* Darker blue for section titles */
+    margin-bottom: 5px; /* Small space below the title */
+}
+
+.dashboard-section p {
+    font-size: 16px; /* Sufficient size for readability */
+    color: #333; /* Dark grey for better readability */
+}
+
+.dashboard-section a {
+    color: #4CAF50; /* Link color to match the theme */
+    text-decoration: none; /* No underline to keep it clean */
+    font-weight: bold; /* Bold for emphasis */
+}
+
+.dashboard-section a:hover {
+    text-decoration: underline; /* Underline on hover for interactivity */
+}
+
+/* Responsive design adjustments */
+@media (max-width: 768px) {
+    .main {
+        width: 90%; /* Slightly narrower on smaller screens */
+        padding: 10px; /* Less padding for screen space efficiency */
+    }
+
+    .dashboard-section {
+        padding: 10px; /* Less padding in sections on smaller screens */
+    }
+}

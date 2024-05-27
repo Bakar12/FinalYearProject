@@ -1,0 +1,42 @@
+/* Ensures the content block does not overlap with the navbar */
+.content-block {
+    padding-top: 80px; /* Adjust this value based on your navbar's actual height */
+}
+
+/* Styles the heading */
+h2 {
+    text-align: center;
+    color: #af4c5b; /* Green color for the heading */
+    margin: 20px 0; /* Adds top and bottom margin for spacing */
+    font-size: 28px; /* Larger font size for the heading */
+}
+
+/* Styles the paragraph for the disclaimer text */
+p {
+    margin-bottom: 20px; /* Adds bottom margin for spacing */
+    line-height: 1.6; /* Increases line height for better readability */
+    text-align: justify; /* Justifies the text for a clean look */
+    max-width: 800px; /* Maximum width of the text block */
+    margin-left: auto; /* Centers the text block horizontally */
+    margin-right: auto;
+    padding: 0 10px; /* Padding on sides for small screens */
+}
+
+/* Button styling */
+.btn {
+    display: block; /* Makes the button a block element */
+    width: 200px; /* Sets a specific width for the button */
+    margin: 30px auto; /* Centers the button horizontally with top margin */
+    padding: 10px; /* Padding inside the button */
+    background-color: #4CAF50; /* Green background */
+    color: white; /* White text */
+    text-align: center; /* Centers the text inside the button */
+    text-decoration: none; /* Removes underline from the text */
+    border-radius: 5px; /* Rounded corners */
+    transition: background-color 0.3s; /* Transition for hover effect */
+}
+
+/* Hover effect for the button */
+.btn-primary:hover {
+    background-color: #45a049; /* Slightly darker green on hover */
+}

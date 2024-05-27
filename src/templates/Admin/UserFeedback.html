@@ -1,3 +1,4 @@
+<link href="/static/admin/css/AdminUserFeedBack.css" rel="stylesheet">
 {% extends 'Admin/AdminBase.html' %}
 {% block content %}
 
@@ -17,13 +18,12 @@
                 </tr>
                 {% for feedback in feedbacks %}
                 <tr>
-                    <td>{{ feedback.feedback_id }}</td>
-                    <td>{{ feedback.user_id }}</td>
-                    <td>{{ feedback.feedback_date }}</td>
-                    <td>{{ feedback.feedback_content }}</td>
-
-                    {% endfor %}
+                    <td>{{ feedback[0] }}</td>
+                    <td>{{ feedback[1] }}</td>
+                    <td>{{ feedback[2] }}</td>
+                    <td>{{ feedback[3] }}</td>
                 </tr>
+                {% endfor %}
 
             </table>
             {% else %}

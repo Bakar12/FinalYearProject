@@ -6,7 +6,67 @@ About
 
 {% block content %}
 <main>
-    <h1>About Us</h1>
-    <p>This is where you can add information about your company, team, or project.</p>
+    <section class="hero" style="text-align: center;">
+        <img alt="Home Page Banner" src="../static/common/Images/banner/AboutPageBanner.png">
+        <h2>About Quick Symptom Diagnosis</h2>
+        <h3>Empowering You to Understand Your Health Better</h3>
+        <p>Welcome to Quick Symptom Diagnosis, an innovative application designed to bridge the gap between you and your
+            health concerns. In a world where access to healthcare can be limited by time, distance, and financial
+            barriers, our goal is to provide immediate, preliminary insights into your symptoms and potential health
+            conditions with the convenience of digital technology.</p>
+        <h3>Our Vision</h3>
+        <p>Our vision is to empower individuals to take control of their health by providing a user-friendly platform
+            that offers personalized guidance and recommendations based on their symptoms. By leveraging the latest
+            advancements in artificial intelligence and machine learning, we aim to deliver accurate, reliable
+            information that can help users make informed decisions about their health and well-being.</p>
+        <h3>How It Works</h3>
+        <p>Using our symptom checker is simple and straightforward. Start by entering your symptoms, and our intelligent
+            algorithm will analyse the information to generate a list of potential causes and conditions associated with
+            your symptoms. While our platform is not a substitute for professional medical advice, it can serve as a
+            valuable tool to help you understand your symptoms, identify possible health issues, and guide you on the
+            next steps to take.</p>
+        <h3>Your Privacy Matters</h3>
+        <p>At Quick Symptom Diagnosis, we understand the importance of privacy and confidentiality when it comes to
+            personal health information. Rest assured that your data is secure, and we adhere to strict privacy
+            protocols to protect your information. Your trust is our top priority, and we are committed to maintaining
+            the highest standards of data security and privacy.</p>
+        <h3>Our Team</h3>
+        <div class="slideshow-container">
+            {% for doctor in doctors %}
+            <div class="mySlides fade">
+                <div class="numbertext">{{ loop.index }} / {{ doctors|length }}</div>
+                <h2>Doctor's Name:</h2>
+                <h3>{{ doctor['FirstName'] }} {{ doctor['LastName'] }}</h3>
+                <h4>Specialisation</h4>
+                <p class="title">{{doctor['Specialization']}}</p>
+                <h4>Email</h4>
+                <p>{{doctor['Email']}}</p>
+                <h4>Biography</h4>
+                <p>{{doctor['Biography']}}</p>
+                <h4>Connect with me</h4>
+                <div class="social-links">
+                    <a href="#"><i class="fa fa-dribbble"></i></a>
+                    <a href="#"><i class="fa fa-twitter"></i></a>
+                    <a href="#"><i class="fa fa-linkedin"></i></a>
+                    <a href="#"><i class="fa fa-facebook"></i></a>
+                </div>
+            </div>
+            {% endfor %}
+            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        </div>
+        <br>
+        <div style="text-align:center">
+            {% for doctor in doctors %}
+            <span class="dot" onclick="currentSlide({{ loop.index }})"></span>
+            {% endfor %}
+        </div>
+        <h3>Disclaimer</h3>
+        <p>While our platform aims to provide helpful insights and information, it is essential to consult a healthcare
+            professional for a comprehensive evaluation and diagnosis of your symptoms. Our platform is not intended to
+            replace medical advice, diagnosis, or treatment from qualified healthcare providers. Always seek the advice
+            of your physician or other qualified healthcare professionals with any questions you may have regarding your
+            health.</p>
+    </section>
 </main>
 {% endblock %}

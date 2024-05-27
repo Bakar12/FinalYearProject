@@ -1,17 +1,22 @@
 from flask import Flask, render_template, session
 import sqlite3
 import joblib
+from doctor.routes import doctor_routes
 from flask_login import LoginManager
-from Routes.User_Routes import user_routes, User
 from admin.routes import admin_routes  # Import the admin_routes blueprint
-
+from user.routes import user_routes, User  # Import the user_routes blueprint
+from user.SymptomDiagnoses import symptom_diagnoses_app
+from model_loader import model_1, model_2  # Import the model_1 and model_2 functions
 
 app = Flask(__name__)
-app.register_blueprint(user_routes)
 app.register_blueprint(admin_routes)  # Register the admin_routes blueprint
+app.register_blueprint(user_routes)  # Register the user_routes blueprint
+app.register_blueprint(doctor_routes)
+app.register_blueprint(symptom_diagnoses_app)
+from flask import jsonify
 
 # Load the trained model and any necessary preprocessing objects
-model = joblib.load('stroke_model.pkl')
+model = joblib.load('user/ModelFolder/stroke_model.pkl')
 
 DATABASE = 'SymptomDiagnoses.db'
 login_manager = LoginManager()
@@ -60,17 +65,25 @@ def home():
 
 @app.route('/about')
 def about():
-    return render_template('about.html')
+    conn = sqlite3.connect(DATABASE)
+    cursor = conn.cursor()
+    cursor.execute('SELECT * FROM Doctors')
+    doctors_tuple = cursor.fetchall()
+    cursor.close()
+    conn.close()
+
+    # Define the column names for the Doctors table
+    columns = ['DoctorID', 'FirstName', 'LastName', 'HospitalAffiliation', 'Specialization', 'Qualififcation',
+               'StateLicenseNumber', 'ContactInformation', 'Department', 'Biography', 'Email']
+
+    # Convert each tuple to a dictionary
+    doctors = [dict(zip(columns, doctors_tuple)) for doctors_tuple in doctors_tuple]
+    return render_template('about.html', doctors=doctors)
 
 
 @app.route('/contact')
 def contact():
     return render_template('contact.html')
-
-
-@app.route('/symptom-checker')
-def index():
-    return render_template('symptomInput.html')
 
 
 if __name__ == '__main__':

@@ -4,6 +4,8 @@
     <title>Registration Page</title>
     <script src="../static/common/js/passwordValidation.js"></script>
     <script src="../static/common/js/multiStepForm.js"></script>
+    <link href="../static/common/css/forms.css" rel="stylesheet">
+
 
 </head>
 <body>
@@ -14,13 +16,6 @@
 {% block content %}
 <div class="content-container">
 
-    <aside class="side-panel">
-        <div class="logo-container">
-            <img alt="Logo" class="logoSidePanel" src="">
-            <h1>Title/Logo</h1>
-            <p>Description of the site or service</p>
-        </div>
-    </aside>
     <div class="main-content">
         <main>
             <section class="registration-form">
@@ -101,42 +96,52 @@
                             <label for="review_firstName">First Name:</label>
                             <span id="review_firstName"></span>
                             <button onclick="editField('firstName')" type="button">Edit</button>
+                            <span class="error-message" id="error_firstName"></span>
                         </div>
                         <div>
                             <label for="review_lastName">Last Name:</label>
                             <span id="review_lastName"></span>
                             <button onclick="editField('lastName')" type="button">Edit</button>
+                            <span class="error-message" id="error_lastName"></span>
                         </div>
                         <div>
                             <label for="review_dob">Date of Birth:</label>
                             <span id="review_dob"></span>
                             <button onclick="editField('dob')" type="button">Edit</button>
+                            <span class="error-message" id="error_dob"></span>
                         </div>
                         <div>
                             <label for="review_gender">Gender:</label>
                             <span id="review_gender"></span>
                             <button onclick="editField('gender')" type="button">Edit</button>
+                            <span class="error-message" id="error_gender"></span>
                         </div>
                         <div>
                             <label for="review_email">Email:</label>
                             <span id="review_email"></span>
                             <button onclick="editField('email')" type="button">Edit</button>
+                            <span class="error-message" id="error_email"></span>
                         </div>
                         <div>
                             <label for="review_mobile">Mobile Number:</label>
                             <span id="review_mobile"></span>
                             <button onclick="editField('mobile')" type="button">Edit</button>
+                            <span class="error-message" id="error_mobile"></span>
                         </div>
                         <!-- Navigation buttons -->
                         <button class="form-navigation-button previous-button" onclick="showStep(3)" type="button">
                             Previous
                         </button>
-                        <button class="form-navigation-button" onclick="showStep(5)" type="button">Next</button>
+                        <button class="form-navigation-button" onclick="return validateReview() && showStep(5)"
+                                type="button">Next
+                        </button>
                     </fieldset>
                     <fieldset id="step5">
                         <h2>Terms and Conditions</h2>
                         <div>
-                            <p>Here you can add your terms and conditions...</p>
+                            <p>Here are the terms and conditon of the site. Please read them carefully before
+                                proceeding.</p>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut purus eget nunc</p>
                             <label for="terms">I agree to the terms and conditions</label>
                             <input id="terms" name="terms" required type="checkbox">
                         </div>
@@ -148,8 +153,7 @@
                     </fieldset>
                     <fieldset id="step6">
                         <h2>Registration Complete</h2>
-                        <p>Thank you for registering. You will receive an email shortly to confirm your
-                            registration.</p>
+                        <p>Thank you for registering. </p>
                     </fieldset>
                 </form>
             </section>

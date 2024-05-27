@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <title>Symptom Checker | Find Possible Causes for Your Symptoms</title>
+    <link href="../static/common/css/HomePage.css" rel="stylesheet">
 </head>
 
 <body>
@@ -17,7 +18,7 @@
 
 <main>
     <section class="hero">
-        <img alt="Home Page Banner" src="../static/common/Images/banner/homePageBanner.png">
+        <img class="banner" alt="Home Page Banner" src="../static/common/Images/banner/homePageBanner.png">
         <h2>Feeling Unwell? Let's Figure It Out Together.</h2>
         <p>Start by entering your symptoms, and we'll guide you through possible causes and next steps.</p>
         <button>Start Checking Symptoms</button>
@@ -25,8 +26,11 @@
 
     <!-- Important Note/Disclaimer Section -->
     <section class="disclaimer">
-        <h2>Important Note/Disclaimer</h2>
-        <p>This is an important note or disclaimer</p>
+        <h2>Disclaimer</h2>
+        <p>This application offers preliminary health assessments based on the information you provide. However, it should not replace professional medical advice, diagnosis, or treatment.</p>
+        <p>Always consult with a qualified healthcare provider for any health concerns and before making any decisions about your health or treatment.</p>
+        <p>This tool is for informational purposes only and should not be the sole basis for health-related decisions.</p>
+        <p>The developers and creators of this application do not assume any liability for the accuracy or completeness of the information provided, or for any actions taken based on its output.</p>
     </section>
 
     <!-- Testimonials Section -->
@@ -49,13 +53,6 @@
             <li>Privacy-protected and secure</li>
         </ul>
     </section>
-    {% if latest_result %}
-<section class="latest-result">
-    <h2>Your Latest Result</h2>
-    <p>Diagnosis Result: {{ latest_result.DiagnosisResult }}</p>
-    <p>Diagnosis Date: {{ latest_result.DiagnosisDate }}</p>
-</section>
-{% endif %}
 
 </main>
 

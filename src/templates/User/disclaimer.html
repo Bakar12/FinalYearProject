@@ -1,0 +1,8 @@
+<link href="../static/common/css/disclaimer.css" rel="stylesheet">
+{% extends 'base.html' %}
+{% block title %}Disclaimer{% endblock %}
+{% block content %}
+<h2>Disclaimer</h2>
+<p>Your disclaimer text goes here.</p>
+<a href="{{ url_for('symptom_diagnoses_app.results') }}" class="btn btn-primary">Proceed to Results</a>
+{% endblock %}

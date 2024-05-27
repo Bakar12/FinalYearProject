@@ -1,10 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+{% extends 'Doctor/DoctorBase.html' %}
+{% block content %}
+<div class="main">
+    <div class="dashboard">
+        <h2>Welcome to the Doctor Dashboard</h2>
+
+        <div class="dashboard-section">
+            <h3>Users</h3>
+            <p><a href="/users">Users</a></p>
+        </div>
+
+        <div class="dashboard-section">
+            <h3>Diagnosis</h3>
+            <p><a href="/diagnosis">Diagnosis</a></p>
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}

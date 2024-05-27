@@ -1,26 +1,22 @@
 /* Basic font and spacing for readability */
 body {
+    font-family: 'Arial', sans-serif; /* Ensuring a clean and professional font */
+    font-size: 18px; /* Optimal size for readability */
+    line-height: 1.5; /* Adequate line spacing for better legibility */
+    color: #333; /* Dark grey for contrast */
+    margin: 0; /* Resetting margins */
+    padding: 20px; /* Uniform padding */
+    background: #f4f4f4; /* Light grey background */
     display: flex;
-    font-family: sans-serif;
-    font-size: 18px; /* Adjust as needed */
-    line-height: 1.5;
-    color: #333; /* Darker text for better contrast */
-    margin: 100px;
-    padding-top: 200px;
-    padding-bottom: 50px;
-
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh; /* Full viewport height */
 }
 
 /* Logo and search bar */
-.logo {
-    margin: 0; /* Removes default margin */
-    display: flex;
-    align-items: center;
-}
-
 .logo h1 {
     margin: 0;
-    font-size: 24px; /* Larger logo for emphasis */
+    font-size: 24px; /* Prominent size for the logo */
 }
 
 /* Dropdown Styles */
@@ -30,68 +26,72 @@ body {
 }
 
 .dropdown-menu {
-    display: none; /* Hide the dropdown items */
+    display: none; /* Keep dropdown items hidden until hovered */
     position: absolute;
-    right: 0; /* Align the dropdown menu to the right */
-    background-color: #f9f9f9;
-    min-width: 160px; /* Set a minimum width if necessary */
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-    z-index: 1;
+    right: 0;
+    background-color: #e3f2fd; /* Light blue background for dropdown */
+    min-width: 160px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    z-index: 100;
 }
 
 .dropdown-menu a {
-    color: black;
+    color: #0056b3; /* Dark blue for dropdown links */
     padding: 12px 16px;
     text-decoration: none;
     display: block;
 }
 
 .dropdown:hover .dropdown-menu {
-    display: block; /* Show dropdown links on hover */
+    display: block; /* Show dropdown on hover */
 }
 
 .dropdown-menu a:hover {
-    background-color: #f1f1f1;
+    background-color: #bbdefb; /* Lighter blue on hover */
 }
+
+/* Hero image styling */
 .hero img {
-    width: 100%;
+    width: 100%; /* Full width of its container */
 }
 
-.main{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 200px;
-        flex-grow: 1;
-
-}
-/* Button styling for Edit Profile */
+/* Button styling */
 .btn {
-    background-color: #4CAF50;  /* Green background, consistent with other buttons */
-    color: white;  /* White text for readability */
-    padding: 10px 20px;  /* Adequate padding for button size */
-    text-align: center;  /* Center the text inside the button */
-    text-decoration: none;  /* Remove underline from link */
-    display: inline-block;  /* Allows the link to be styled like a block but inline */
-    font-size: 16px;  /* Visible font size */
-    border: none;  /* No border for a clean look */
-    border-radius: 5px;  /* Rounded corners for a modern appearance */
-    cursor: pointer;  /* Pointer cursor on hover */
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);  /* Subtle shadow for 3D effect */
-    transition: background-color 0.3s, box-shadow 0.3s;  /* Smooth transition for hover effects */
+    background-color: #007bff; /* Bootstrap's primary blue */
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    transition: all 0.3s;
 }
 
 .btn-primary {
-    background-color: #11ff00;  /* Primary button color, a bright blue */
+    background-color: #0056b3; /* Darker blue for primary buttons */
 }
 
 .btn:hover, .btn-primary:hover {
-    background-color: #0e8325;  /* Darker shade on hover for better interaction */
-    box-shadow: 0 4px 8px rgba(0,0,0,0.3);  /* Deeper shadow on hover fo
-    r a 'lifted' effect */
+    background-color: #003a70; /* Even darker blue on hover */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
 }
 
-/* Ensuring the button fits well with any surrounding elements */
+/* Space between buttons when next to each other */
 .btn + .btn {
-    margin-left: 10px;  /* Space between buttons if they are next to each other */
+    margin-left: 10px;
+}
+
+/* Layout adjustments for main content area */
+.main {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-grow: 1;
+    padding: 20px;
+    width: 100%; /* Full width of the container */
+    box-sizing: border-box; /* Includes padding and border in width */
 }

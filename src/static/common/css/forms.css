@@ -4,7 +4,11 @@
     gap: 300px; /* Adjust as needed */
 
 }
-
+.main-content {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+}
 /* Registration Form Styling */
 .registration-form {
     display: flex;
@@ -14,6 +18,11 @@
     padding: 40px;
     width: 100%;
     margin-top: 150px;
+}
+
+.registration-form h2 {
+    text-align: center;
+    margin-top: 10px;
 }
 
 .registration-form fieldset {
@@ -91,17 +100,6 @@ button:hover {
     button {
         padding: 10px;
     }
-}
-
-.side-panel {
-    margin-top: 170px;
-    position: fixed;
-    top: 0;
-    bottom: 100px;
-    left: 0;
-    width: 25%;
-    height: calc(100% - 100px);
-    background-color: lightblue;
 }
 
 .registration-form {

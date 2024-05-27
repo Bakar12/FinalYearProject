@@ -1,0 +1,13 @@
+.home-button {
+    display: inline-block;
+    background-color: #4CAF50; /* Green background for links */
+    color: #fff; /* White text color for contrast */
+    text-decoration: none; /* Removes underline from links */
+    padding: 10px 20px; /* Padding for clickable area */
+    border-radius: 5px; /* Rounded corners for buttons */
+    margin-top: 20px; /* Space above the button */
+}
+.content {
+    text-align: center; /* Center the content */
+    margin-top: 250px; /* Space above the content */
+}

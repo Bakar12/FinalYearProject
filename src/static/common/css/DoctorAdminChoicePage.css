@@ -1,11 +1,63 @@
-   .login-section, .doctor-section, .admin-section {
-            border: 1px solid #000;
-            padding: 20px;
-            margin: 10px;
-            width: 200px;
-            text-align: center;
-        }
-.AdminDoctorChoice button {
-    display: block;
-    margin-bottom: 10px;
+/* General body setup to ensure proper spacing and alignment */
+body {
+    font-family: 'Arial', sans-serif; /* Consistent font for a professional look */
+    margin: 0; /* Reset default margin */
+    padding: 10px; /* Reset default padding */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center content horizontally */
+    justify-content: center; /* Center content vertically */
+    min-height: 100vh; /* Full viewport height */
+    background: #f4f4f4; /* Light background color */
+    padding-top: 700px; /* Padding to ensure content is below the navbar */
+}
+
+/* Main content styling */
+.main-content {
+    width: 90%; /* Responsive width */
+    max-width: 1000px; /* Maximum width to ensure content does not stretch too far */
+    padding: 20px;
+    background: white; /* White background for the form area */
+    border-radius: 8px; /* Rounded corners */
+    margin-top: 200px; /* Space from the top */
+    margin-bottom: 200px; /* Space from the bottom */
+
+}
+
+/* Section styling for registration or login forms */
+.registration-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center form contents */
+    width: 100%; /* Full width of its container */
+}
+
+.registration-form h2 {
+    text-align: center; /* Center the title */
+    color: #007bff; /* Primary blue for emphasis */
+    margin-bottom: 20px; /* Space below the title */
+}
+
+/* Links for Doctor and Admin login sections */
+.doctor-section, .admin-section {
+    display: block; /* Block display for full width clickable area */
+    background-color: #007bff; /* Blue background */
+    color: white; /* White text for contrast */
+    padding: 15px 20px; /* Padding for sizing */
+    margin: 10px 0; /* Margin for spacing between links */
+    text-align: center; /* Center the text */
+    border-radius: 3px; /* Rounded corners */
+    text-decoration: none; /* Remove underline from links */
+    width: 100%; /* Full width for easier clickability */
+}
+
+.doctor-section:hover, .admin-section:hover {
+    background-color: #0056b3; /* Darker blue on hover for interactive feedback */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .main-content {
+        width: 95%; /* Slightly more width on smaller screens */
+    }
 }

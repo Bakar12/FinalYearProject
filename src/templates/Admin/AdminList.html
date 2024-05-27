@@ -38,10 +38,8 @@
                     <td>{% if permission[3] %}✔️{% else %}❌{% endif %}</td>
                     <td>{% if permission[4] %}✔️{% else %}❌{% endif %}</td>
                     <td>{% if permission[5] %}✔️{% else %}❌{% endif %}</td>
-
                     {% if session.permissions[4] %}
                     <td>
-
                         <a href="{{ url_for('admin_routes.modify_admin', admin_id=admin[0]) }}">
                             <button type="button">Modify</button>
                         </a>

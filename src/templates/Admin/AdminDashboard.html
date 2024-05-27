@@ -1,21 +1,28 @@
+<link href="/static/admin/css/AdminDashboard.css" rel="stylesheet">
+
 {% extends 'Admin/AdminBase.html' %}
-{% block title %}Admin Dashboard{% endblock %}
 
 {% block content %}
-<div class="dashboard">
-    <h2>Welcome to the Admin Dashboard</h2>
-    <p>Here you can manage users, view feedback, and more.</p>
 
-    <div class="dashboard-section">
-        <h3>Users</h3>
-        <p><a href="/manage_users">Manage Users</a></p>
+<div class="main">
+    <div class="dashboard">
+        <h2>Welcome to the Admin Dashboard</h2>
+        <p>Here you can manage users, view feedback, and more.</p>
+
+        <div class="dashboard-section">
+            <h3>Users</h3>
+            <p><a href="/manage_users">Manage Users</a></p>
+        </div>
+
+        <div class="dashboard-section">
+            <h3>Feedback</h3>
+            <p><a href="/view_feedback">View Feedback</a></p>
+        </div>
+        <div class="dashboard-section">
+            <h3>Admins</h3>
+            <p><a href="/admin_list">View Admins</a></p>
+
     </div>
-
-    <div class="dashboard-section">
-        <h3>Feedback</h3>
-        <p><a href="/view_feedback">View Feedback</a></p>
-    </div>
-
-    <!-- Add more sections as needed -->
 </div>
+
 {% endblock %}

@@ -51,11 +51,19 @@ def login_admin():
             session['user_id'] = account[0]  # Store the admin ID in the session
             session['first_name'] = account[1]  # Store the first name in the session
             session['last_name'] = account[2]  # Store the last name in the session
+            session['is_first_login'] = account[9]  # Store the is_first_login status in the session
+
             # Log the admin action
             log_admin_action(session['user_id'], 'Login',
                              f'Admin {session["first_name"]} {session["last_name"]} logged in')
-            # Redirect to admin dashboard
-            return redirect(url_for('admin_routes.admin_dashboard'))
+
+            # Check if this is the admin's first login
+            if session['is_first_login']:
+                # Redirect to the password change page
+                return redirect(url_for('admin_routes.change_password'))
+            else:
+                # Redirect to admin dashboard
+                return redirect(url_for('admin_routes.admin_dashboard'))
         else:
             # Set the warning message
             warning = 'Invalid username or password.'
@@ -74,7 +82,8 @@ def admin_dashboard():
             with sqlite3.connect(DATABASE) as conn:
                 # Create a cursor object to execute SQL commands
                 cursor = conn.cursor()
-                # Execute an SQL command to select the admin ID from the Admins table where the admin ID matches the user ID in the session
+                # Execute an SQL command to select the admin ID from the Admins table where the admin ID matches the
+                # user ID in the session
                 cursor.execute('SELECT AdminID FROM Admins WHERE AdminID = ?', (session['user_id'],))
                 # Fetch the first record from the result set
                 admin = cursor.fetchone()
@@ -103,7 +112,8 @@ def admin_profile():
         # Connect to the SQLite database
         conn = sqlite3.connect(DATABASE)
         cursor = conn.cursor()
-        # Execute an SQL command to select all columns from the Admins table where the admin ID matches the user ID in the session
+        # Execute an SQL command to select all columns from the Admins table where the admin ID matches the user ID
+        # in the session
         cursor.execute('SELECT * FROM Admins WHERE AdminID = ?', (session['user_id'],))
         # Fetch the first record from the result set
         admin_tuple = cursor.fetchone()
@@ -241,9 +251,15 @@ def delete_user_confirmed(user_id):
     return redirect(url_for('admin_routes.users'))
 
 
+# Define the route for the user feedback page
 @admin_routes.route('/user_feedback')
 def user_feedback():
-    feedbacks = execute_query('SELECT * FROM Feedback')
+    conn = sqlite3.connect(DATABASE)
+    cursor = conn.cursor()
+    cursor.execute('SELECT * FROM Feedback')
+    feedbacks = cursor.fetchall()
+    cursor.close()
+    conn.close()
     return render_template('Admin/UserFeedback.html', feedbacks=feedbacks)
 
 
@@ -678,3 +694,52 @@ def update_admin_permissions():
                      f'CanAddDeleteAdmins={old_permissions[4]}->{permissions["can_add_delete_admins"]}')
     # Redirect to the admin list page
     return redirect(url_for('admin_routes.admin_list'))
+
+
+from werkzeug.security import generate_password_hash, check_password_hash
+
+
+# Define the route for the change password page
+@admin_routes.route('/change_password', methods=['GET', 'POST'])
+@admin_required
+def change_password():
+    if request.method == 'POST':
+        current_password = request.form.get('current_password')
+        new_password = request.form.get('new_password')
+
+        # Validate input
+        if not current_password or not new_password:
+            flash('Current password and new password are required!', 'warning')
+            return redirect(url_for('admin_routes.change_password'))
+
+        # Retrieve admin from the database
+        conn = sqlite3.connect(DATABASE)
+        cursor = conn.cursor()
+        cursor.execute('SELECT Password, is_first_login FROM Admins WHERE AdminID = ?', (session['user_id'],))
+        password_hash, is_first_login = cursor.fetchone()
+        cursor.close()
+        conn.close()
+
+        # Check if current password is correct
+        if not check_password_hash(password_hash, current_password):
+            flash('Current password is incorrect.', 'warning')
+            return redirect(url_for('admin_routes.change_password'))
+
+        # Update password and is_first_login in the database
+        new_password_hash = generate_password_hash(new_password)
+        conn = sqlite3.connect(DATABASE)
+        cursor = conn.cursor()
+        cursor.execute('UPDATE Admins SET Password = ?, is_first_login = 0 WHERE AdminID = ?',
+                       (new_password_hash, session['user_id']))
+        conn.commit()
+        cursor.close()
+        conn.close()
+
+        flash('Password changed successfully.', 'success')
+        return redirect(url_for('admin_routes.admin_profile'))
+
+    # If it's a GET request
+    if session.get('is_first_login', False):
+        flash('Since this is your first login, you need to enter a new password for yourself.', 'info')
+
+    return render_template('Admin/ChangePassword.html')

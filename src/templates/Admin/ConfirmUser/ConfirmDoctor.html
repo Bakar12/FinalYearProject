@@ -19,8 +19,7 @@
         {% for field, value in doctor.items() %}
         <input type="hidden" name="{{ field }}" value="{{ value }}">
         {% endfor %}
-        <button class="confirm" type="submit">Confirm</button>
-    </form>
+<button class="confirm" type="submit" style="align-items: center; background: #11ff00;">Confirm</button>    </form>
     <button onclick="window.history.back()">Cancel</button>
 </div>
 {% endblock %}

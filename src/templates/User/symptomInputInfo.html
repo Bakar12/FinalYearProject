@@ -1,10 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Stroke Prediction</title>
+    <script src="../../static/common/js/multiStepForm.js"></script>
+
 </head>
 <body>
-$END$
+{% extends 'base.html' %}
+{% block title %}Symptom Checker{% endblock %}
+{% block content %}
+
+<h2>Stroke Prediction</h2>
+<main>
+    <section class="hero">
+        <img alt="Home Page Banner" src="../static/common/Images/banner/symptomDiagnosisBanner.png">
+        <h2>Feeling Unwell? Let's Figure It Out Together.</h2>
+        <p>Start by entering your symptoms, and we'll guide you through possible causes and next steps.</p>
+        <a href="{{ url_for('user_routes.login') }}"><button>Login</button></a>
+    </section>
+{% endblock %}
+</main>
 </body>
 </html>

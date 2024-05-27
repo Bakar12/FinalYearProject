@@ -1,0 +1,69 @@
+/* Base styles for the form to ensure it's centered and neatly styled */
+form {
+    max-width: 600px; /* Limits the width for better readability */
+    margin: 120px auto; /* Centers the form horizontally and adds vertical spacing */
+    padding: 20px;
+    background-color: #fff; /* White background for clarity */
+    border-radius: 8px; /* Soft rounded corners for a modern look */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+/* Styles for headings within the form */
+h2 {
+    text-align: center; /* Centers the heading */
+    color: #4CAF50; /* Consistent green theme for headings */
+    margin-bottom: 20px; /* Provides spacing below the heading */
+}
+
+/* Styles for form labels */
+label {
+    display: block; /* Ensures the label is on a new line */
+    margin-bottom: 8px; /* Space below each label */
+    font-size: 16px; /* Slightly larger font size for readability */
+    color: #333; /* Dark gray for better visibility */
+}
+
+/* Textarea styling */
+textarea {
+    width: 100%; /* Full width to fit the form */
+    padding: 10px; /* Padding inside the textarea for text comfort */
+    border: 1px solid #ccc; /* Subtle border color */
+    border-radius: 4px; /* Rounded corners for the textarea */
+    resize: vertical; /* Allows vertical resizing only */
+}
+
+/* Style adjustments for buttons */
+input[type="submit"] {
+    padding: 10px 20px; /* Adequate padding inside the buttons */
+    margin-top: 20px; /* Spacing above the first button */
+    margin-right: 10px; /* Spacing between buttons if they are inline */
+    background-color: #4CAF50; /* Green background to stand out */
+    color: white; /* White text for contrast */
+    border: none; /* No border for a cleaner look */
+    border-radius: 5px; /* Slightly rounded corners for buttons */
+    cursor: pointer; /* Pointer to indicate clickable */
+    display: block; /* Ensures it takes the full line */
+    width: 100%; /* Makes the button full-width */
+}
+
+input[type="submit"]:hover {
+    background-color: #45a049; /* Slightly darker green on hover */
+}
+
+/* Skip button specific style if needed */
+form[action="/skip_feedback"] input[type="submit"] {
+    background-color: #bbb; /* Neutral gray for less emphasis */
+    color: #fff; /* White text for visibility */
+}
+
+form[action="/skip_feedback"] input[type="submit"]:hover {
+    background-color: #aaa; /* Darker gray on hover */
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+    form {
+        padding: 10px;
+        margin: 20px;
+    }
+}

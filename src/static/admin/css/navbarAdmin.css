@@ -9,8 +9,6 @@
     color: white;
     position: sticky; /* Makes the header sticky */
     top: 0; /* Sticks to the top */
-    z-index: 1000; /* Ensures it stays on top of other content */
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Adds a subtle shadow for depth */
 }
 
 .logo img {

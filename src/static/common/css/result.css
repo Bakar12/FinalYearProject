@@ -1,3 +1,52 @@
-body .content {
-    margin-top: 100px; /* Adjust this value as needed */
+/* Basic styles for body to ensure full height and center alignment */
+body {
+    display: flex;
+    align-items: center; /* Centers content vertically */
+    justify-content: center; /* Centers content horizontally */
+    height: 100vh; /* Full viewport height */
+    margin-top: 300px;
+    padding: 0;
+    background-color: #f4f4f4; /* Light grey background for a neutral look */
+    font-family: Arial, sans-serif; /* Ensures a clean, modern font is used */
 }
+
+/* Styles for the content container */
+.content {
+    text-align: center;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    width: 80%;
+    max-width: 600px;
+    margin-top: 200px;
+/* Heading styles */
+h2 {
+    color: #4CAF50; /* Green color for headings */
+    margin-bottom: 20px; /* Space below the heading */
+}
+
+/* Paragraph styles for disease information */
+.disease {
+    font-size: 18px; /* Slightly larger font size for emphasis */
+    color: #333; /* Dark grey for readable text */
+    margin-bottom: 10px; /* Space below the paragraph */
+}
+
+/* Special styling for the prediction percentage */
+.prediction {
+    font-size: 36px; /* Large font size for emphasis */
+    color: red; /* Red color to highlight the importance */
+    margin-bottom: 20px; /* Space below the prediction result */
+}
+
+/* Link styling */
+.feedback{
+    display: inline-block;
+    background-color: #4CAF50; /* Green background for links */
+    color: #fff; /* White text color for contrast */
+    text-decoration: none; /* Removes underline from links */
+    padding: 10px 20px; /* Padding for clickable area */
+    border-radius: 5px; /* Rounded corners for buttons */
+    margin-top: 20px; /* Space above the button */
+} }

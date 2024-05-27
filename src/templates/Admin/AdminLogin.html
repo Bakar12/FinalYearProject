@@ -2,6 +2,7 @@
 <html lang="">
 <head>
     <title>Login Page</title>
+    <link href="../static/common/css/forms.css" rel="stylesheet">
 
 </head>
 <body>
@@ -9,14 +10,8 @@
 {% block title %}Login Page{% endblock %}
 
 {% block content %}
-<aside class="side-panel">
-    <div class="logo-container">
-        <img alt="Logo" class="logoSidePanel" src="">
-        <h1>Title/Logo</h1>
-        <p>Description of the site or service</p>
-    </div>
-</aside>
-<div class="main-content">
+
+<div class="main">
     <section class="registration-form">
         <h2>Login</h2>
         <form action="/login_admin" method="post">
